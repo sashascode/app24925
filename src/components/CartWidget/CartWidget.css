@@ -1,0 +1,11 @@
+.cart {
+    border: none;
+    color: var(--blanco);
+    background-color: rgb(53, 148, 226);
+    font-size: 2rem;
+    font-family: var(--principalFont);
+}
+.cart:hover {
+    cursor: pointer;
+}
+
