@@ -18,7 +18,7 @@ const NavBar = ({brandName1, brandName2}) => {
                 <a href="iphone.html" className="navegation__link boldHover">iPhone</a>
                 <a href="ipad.html" className="navegation__link boldHover">iPad</a>
                 <a href="accesorios.html" className="navegation__link boldHover">Accesorios</a>
-                <CartWidget colorText="white"/>
+                <CartWidget colorText="black"/>
             </nav>
 
         </div>

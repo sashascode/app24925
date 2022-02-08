@@ -1,6 +1,6 @@
 .cart {
     border: none;
-    background-color: rgb(53, 148, 226);
+    background-color: white;
     font-size: 2rem;
     font-family: var(--principalFont);
 }

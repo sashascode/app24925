@@ -3,6 +3,11 @@
     --gris: #e1e1e1;
     --blanco: #ffffff;
     --negro: #000000;
+    --amarillo: #ffbe0b;
+    --azul: #3a86ff;
+    --fucsia: #ff006e;
+    --violeta: #8338ec;
+    --naranja: #fb5607;
 }
 html {
     box-sizing: border-box;
@@ -43,7 +48,8 @@ h1 {
 /** NavBar **/
 .bar {
     padding: 2rem;
-    background-color: rgb(53, 148, 226);
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 @media (min-width: 768px) {
     .bar {
@@ -54,9 +60,13 @@ h1 {
     }
 }
 .brand {
-    color: var(--blanco);
-    
+    color: var(--negro);
 }
+
+.brand:hover {
+    color: #ff006e;
+}
+
 .brand__name {
     font-weight: 400;
 }
@@ -74,7 +84,7 @@ h1 {
     display: block;
     text-align: center;
     font-size: 1.8rem;
-    color: var(--blanco);
+    color: var(--negro);
 }
 
 .apple-icon {
