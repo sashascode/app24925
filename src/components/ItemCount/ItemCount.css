@@ -1,0 +1,63 @@
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+img {
+    width: 20%;
+}
+
+label {
+    font-size: 1.5rem;
+    color: var(--blanco);
+    background-color: rgb(216, 88, 110);
+    padding: 1rem;
+    font-weight: bold;
+}
+
+del {
+    color: var(--gris);
+    font-size: 1.5rem;
+}
+
+.boton {
+    display: block;
+    font-family: var(--fuenteHeading);
+    color: var(--blanco);
+    text-align: center;
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    border: none;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        display: inline-block;
+
+    }
+}
+.boton:hover {
+    cursor: pointer;
+}
+.boton--primario {
+    background-color: rgb(53, 148, 226);
+}
+.boton--primario:hover {
+    background-color: rgb(103, 187, 255);
+}
+.boton--secundario {
+    background-color: rgb(216, 88, 110);
+}
+.counter-button {
+    display: inline-block;
+    text-align: center;
+    margin: 1rem;
+}
+

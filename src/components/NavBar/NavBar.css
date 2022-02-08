@@ -19,9 +19,14 @@ a {
     font-family: var(--principalFont);
     text-decoration: none;
 }
+
+a:hover{
+    font-weight: bold;
+}
+
 h1 {
     font-family: var(--principalFont);
-    font-size: bold;
+    font-weight: bold;
     line-height: 1.2;
     font-size: 4.8rem;
 }
