@@ -27,6 +27,7 @@ a {
 
 a:hover{
     font-weight: bold;
+    color: var(--fucsia);
 }
 
 h1 {
