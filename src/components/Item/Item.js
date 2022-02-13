@@ -1,9 +1,9 @@
 import './Item.css'
 import ItemCount from '../ItemCount/ItemCount'
-import {useState} from 'react'
+import { useState } from 'react'
 
 
-export const Item = ({product}) => {
+export const Item = ( {product} ) => {
     const [details,setDetails] = useState(false);
 
     const showDetails = () => {
@@ -22,14 +22,14 @@ export const Item = ({product}) => {
     <>
         <div className="product"> 
 
-            <img src={product.img} alt={product.name}/>
-            <h3>{product.name}</h3>
-            <h2><span><del>USD {product.price - 350}</del></span> USD {product.price}</h2>
-            <button className="boton boton--primario" onClick={() => showDetails()}> {details ? "Ver Menos" : "Ver Más"}</button>
+            <img src={ product.img } alt={ product.name }/>
+            <h3>{ product.name }</h3>
+            <h2><span><del>USD { product.price + 350 }</del></span> USD { product.price }</h2>
+            <button className="boton boton--primario" onClickCapture={ () => showDetails() }> { details ? "Ver Menos" : "Ver Más" }</button>
 
-        <div className={ details ? null : "display-none" }  >
-            <p>{product.description}</p>
-            <ItemCount stock={15} initial={1} onAdd={onAdd}/>
+            <div className={ details ? null : "display-none" }  >
+                <p>{ product.description }</p>
+                <ItemCount stock={ 15 } initial={ 1 } onAdd={ onAdd }/>
         </div>
         </div>
     </>

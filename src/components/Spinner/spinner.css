@@ -1,0 +1,33 @@
+.spinner, .spinner:after{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: block;
+  }
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-left-color: var(--violeta);
+
+    position: absolute; 
+    left: 0;
+    bottom: 0; 
+    right: 0; 
+    top: 0; 
+    margin: auto;
+
+    animation: spin 1s ease infinite;
+}
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
