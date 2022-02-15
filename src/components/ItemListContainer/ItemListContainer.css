@@ -1,8 +1,9 @@
-
+@media (min-width: 768px) {
 .container-productos {
     display: grid;
     grid-template-columns: repeat(3,1fr);
     align-items: center;
     column-gap: 2rem;
     
+}
 }

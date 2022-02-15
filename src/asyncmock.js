@@ -15,3 +15,14 @@ export const getProducts = () => {
         }, 2000);      
     });
 }
+
+export const getProduct = () => {
+    return new Promise((res) => {
+        setTimeout(() => {
+            res(products[0]);
+        }, 2000);      
+    });
+}
+
+
+
