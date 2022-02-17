@@ -92,5 +92,12 @@ h1 {
     font-size: 4rem;
 }
 
+.ActiveOption{
+    display: block;
+    text-align: center;
+    font-size: 1.8rem;
+    color: #ff006e;
+    font-weight: bold;
+}
 
 

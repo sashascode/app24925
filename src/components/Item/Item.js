@@ -1,37 +1,27 @@
 import './Item.css'
-import ItemCount from '../ItemCount/ItemCount'
 import { useState } from 'react'
+import FadeIn from 'react-fade-in'
+import { Link } from 'react-router-dom'
 
 
 export const Item = ( {product} ) => {
-    const [details,setDetails] = useState(false);
-
-    const showDetails = () => {
-        setDetails(!details);
-    }
-
-    const onAdd = (count) => {
-        if(count > 1){
-        console.log(`Se agregaron ${count} articulos al carrito`);
-        } else {
-            console.log(`Se agrego ${count} articulo al carrito`);
-        }
-    }
+    const [button,setButton] = useState(false);
 
     return(
     <>
-        <div className="product"> 
+        <Link to={`/detail/${product.id}`}> 
+            <div className="card" onMouseEnter={() => setButton(true)} onMouseLeave={()=> setButton(false)}> 
+                <div className="content">
+                    <img src={ product.img } alt={ product.name }/>
+                    <h3>{ product.name }</h3>
+                    <h2><span><del>USD { product.price + 350 }</del></span> USD { product.price }</h2>
 
-            <img src={ product.img } alt={ product.name }/>
-            <h3>{ product.name }</h3>
-            <h2><span><del>USD { product.price + 350 }</del></span> USD { product.price }</h2>
-            <button className="boton boton--primario" onClickCapture={ () => showDetails() }> { details ? "Ver Menos" : "Ver Más" }</button>
-
-            <div className={ details ? null : "display-none" }  >
-                <p>{ product.description }</p>
-                <ItemCount stock={ 15 } initial={ 1 } onAdd={ onAdd }/>
-        </div>
-        </div>
+                    {button && <FadeIn><footer className="boton boton--primario">
+                        Ver Más
+                    </footer></FadeIn> }
+                </div>
+            </div>
+        </Link>
     </>
     )
 }

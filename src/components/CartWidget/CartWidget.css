@@ -3,9 +3,10 @@
     background-color: white;
     font-size: 2rem;
     font-family: var(--principalFont);
+    color: var(--negro);
 }
 .cart:hover {
     cursor: pointer;
     font-weight: bold;
+    color: var(--fucsia);
 }
-

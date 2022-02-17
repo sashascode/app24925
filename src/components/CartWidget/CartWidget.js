@@ -1,9 +1,9 @@
 import './CartWidget.css';
 import { FiShoppingCart}  from 'react-icons/fi';
 
-const CartWidget = ({colorText}) => {
+const CartWidget = () => {
     return(
-    <button className='cart' style={{color: colorText}}><FiShoppingCart/> 3 </button>
+    <button className='cart'><FiShoppingCart/> 3 </button>
     )
 } 
 

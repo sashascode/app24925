@@ -18,7 +18,7 @@ export const ItemDetail = ({product}) => {
     return(
         <>
             <div className="container">
-                <div className="card">
+                <div className="card-detail">
                     <img className="image" src={product.img} alt={product.name}/>
 
                     <div className="product-details">
@@ -26,7 +26,6 @@ export const ItemDetail = ({product}) => {
 
                         <p>{product.description}</p>
 
-                        <p><strong>Color:</strong> Grafito</p>
 
                         <h2 className="price"><span><del>USD {product.price + 350}</del></span> USD {product.price}</h2>
                 
