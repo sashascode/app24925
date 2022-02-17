@@ -68,3 +68,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+# Proyecto E-commerce 'iStore'
+
+E-commerce de productos de Apple con una interfaz moderna y sencilla.
+
+## Dependecias Extras:
+
+Personalmente inclui las dependecias de npm react-icons y react-fade-in.
+
+Utilice react-icons ya que tiene una galeria con todos los iconos que preciso para este proyecto (marca de apple, carrito, medalla, flecha de return, entre otros).
+Utilice react-fade-in ya que necesitaba la animacion fade-in en mi boton de "Ver Mas" para que, al hacer hover en la card del producto, aparezca el boton sutilmente para una mejor experiencia de usuario.
+
+# Demo
+
+![Alt Text](https://gifs.com/gif/istoredemo-mqXQVE)
