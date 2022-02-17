@@ -9,8 +9,8 @@ export const Item = ( {product} ) => {
 
     return(
     <>
-        <Link to={`/detail/${product.id}`}> 
-            <div className="card" onMouseEnter={() => setButton(true)} onMouseLeave={()=> setButton(false)}> 
+        <div className="card" onMouseEnter={() => setButton(true)} onMouseLeave={()=> setButton(false)}> 
+            <Link to={`/detail/${product.id}`}>
                 <div className="content">
                     <img src={ product.img } alt={ product.name }/>
                     <h3>{ product.name }</h3>
@@ -20,8 +20,11 @@ export const Item = ( {product} ) => {
                         Ver Más
                     </footer></FadeIn> }
                 </div>
-            </div>
-        </Link>
+            </Link>
+        </div>
+        
+        
+        
     </>
     )
 }

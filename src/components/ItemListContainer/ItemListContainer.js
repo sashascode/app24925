@@ -12,6 +12,7 @@ const ItemListContainer = () => {
     const {categoryId} = useParams();
 
     useEffect(() => {
+        setSpinner(true);
         getProducts(categoryId).then((products) => { //fetch('https://api.mercadolibre.com/sites/MLA/search?q=iphone').then(response => {return response.json()}).then(res => mapeamos los productos que estan en res.results)
             setSpinner(false);
             setProducts(products);
@@ -20,10 +21,11 @@ const ItemListContainer = () => {
 
     return(
         <>
-        {spinner && <Spinner />}
-        <div className="container-productos">  
-            <ItemList products={products}/> 
-        </div>
+            {spinner ? <Spinner /> :
+            <div className="container-productos">  
+                <ItemList products={products}/> 
+            </div>
+            }
         </>
     )
 }

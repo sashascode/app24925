@@ -19,8 +19,8 @@ export const ItemDetailContainer = () => {
 
     return(
         <>
-            {spinner ? <Spinner /> : null }
-            {spinner ? null : <ItemDetail product={product}/>}
+            {spinner && <Spinner />}
+            {!spinner && <ItemDetail product={product}/>}
         </>
     );
 

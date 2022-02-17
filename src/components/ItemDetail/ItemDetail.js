@@ -23,19 +23,15 @@ export const ItemDetail = ({product}) => {
 
                     <div className="product-details">
                         <h3>{product.name}</h3>
-
                         <p>{product.description}</p>
-
 
                         <h2 className="price"><span><del>USD {product.price + 350}</del></span> USD {product.price}</h2>
                 
-
-                        <ItemCount stock={ 15 } initial={ 1 } onAdd={ onAdd }/>
-
+                        <ItemCount stock={ product.stock } initial={ 1 } onAdd={ onAdd }/>
 
                         <div className="guaranteed">
-                            <p><span className="beneficios"><IoMdReturnLeft/> Devolucion gratis.</span> Tenés 30 días desde que lo recibís.</p>
-                            <p><span className="beneficios"><FaMedal/> Garantia.</span> 12 meses de fabrica.</p>
+                            <p><span className="benefits"><IoMdReturnLeft/> Devolucion gratis.</span> Tenés 30 días desde que lo recibís.</p>
+                            <p><span className="benefits"><FaMedal/> Garantia.</span> 12 meses de fabrica.</p>
                         </div>
                     </div>
                 </div>  
