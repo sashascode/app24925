@@ -84,4 +84,4 @@ Utilice react-fade-in ya que necesitaba la animacion fade-in en mi boton de "Ver
 
 # Demo
 
-![Alt Text](istoredemo.gif)
+![Alt Text](istoredemoog.gif)
