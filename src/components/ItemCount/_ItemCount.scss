@@ -1,0 +1,14 @@
+@use '../../scss/base/globales';
+@use '../../scss/base/variables' as v;
+
+.counter-button {
+    display: inline-block;
+    text-align: center;
+    margin: 1rem;
+    font-size: 1.5rem;
+    color: v.$blanco;
+    background-color: v.$fucsia;
+    padding: 1rem;
+    font-weight: bold;
+    border-radius: 999px;
+}

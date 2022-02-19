@@ -1,4 +1,4 @@
-import './CartWidget.css';
+import './_CartWidget.scss';
 import { FiShoppingCart}  from 'react-icons/fi';
 
 const CartWidget = () => {

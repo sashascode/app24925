@@ -1,0 +1,22 @@
+@use '../../scss/base/globales';
+@use '../../scss/base/variables' as v;
+
+.content:link {
+    text-decoration: none;
+}
+
+.content:visited {
+    color: v.$negro;
+    font-family: v.$principalFont;
+    text-decoration: none;
+}
+
+.content:hover {
+    cursor: pointer;
+    color: v.$negro;
+}
+
+.content {
+    color: v.$negro;
+}
+

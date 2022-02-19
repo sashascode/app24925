@@ -3,8 +3,7 @@ import { ItemList } from '../ItemList/ItemList.js'
 import { useEffect, useState } from 'react'
 import { Spinner } from '../Spinner/spinner.js'
 import { useParams } from "react-router-dom";
-
-import './ItemListContainer.css'
+import './_ItemListContainer.scss'
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
@@ -22,7 +21,7 @@ const ItemListContainer = () => {
     return(
         <>
             {spinner ? <Spinner /> :
-            <div className="container-productos">  
+            <div className="container-productos"> 
                 <ItemList products={products}/> 
             </div>
             }

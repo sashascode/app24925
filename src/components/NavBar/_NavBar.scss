@@ -1,0 +1,57 @@
+@use '../../scss/base/globales';
+@use '../../scss/base/variables' as v;
+
+.bar {
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+@media (min-width: 768px) {
+    .bar {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        
+    }
+}
+.brand {
+    color: v.$negro;
+}
+
+.brand:hover {
+    color: v.$fucsia;
+}
+
+.brand__name {
+    font-weight: 400;
+}
+.brand__bold {
+    font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    .navegation {
+        display: flex;
+        gap: 2rem;
+    }
+}
+.navegation__link {
+    display: block;
+    text-align: center;
+    font-size: 1.8rem;
+    color: v.$negro;
+}
+
+.apple-icon {
+    font-size: 4rem;
+}
+
+.ActiveOption{
+    display: block;
+    text-align: center;
+    font-size: 1.8rem;
+    color: v.$fucsia;
+    font-weight: bold;
+}
+
+

@@ -1,4 +1,4 @@
-import './Item.css'
+import './_Item.scss'
 import { useState } from 'react'
 import FadeIn from 'react-fade-in'
 import { Link } from 'react-router-dom'

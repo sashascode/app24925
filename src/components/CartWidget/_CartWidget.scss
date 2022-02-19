@@ -1,0 +1,15 @@
+@use '../../scss/base/globales';
+@use '../../scss/base/variables' as v;
+
+.cart {
+    border: none;
+    background-color: v.$blanco;
+    font-size: 2rem;
+    font-family: v.$principalFont;
+    color: v.$negro;
+}
+.cart:hover {
+    cursor: pointer;
+    font-weight: bold;
+    color: v.$fucsia;
+}

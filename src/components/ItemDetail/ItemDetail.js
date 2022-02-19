@@ -1,4 +1,4 @@
-import './ItemDetail.css'
+import './_ItemDetail.scss'
 import ItemCount from '../ItemCount/ItemCount'
 import { IoMdReturnLeft } from 'react-icons/io'
 import { FaMedal } from 'react-icons/fa'

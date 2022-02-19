@@ -1,0 +1,145 @@
+@use 'variables' as v;
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: rgb(241, 240, 240);
+}
+
+h1 {
+    font-family: v.$principalFont;
+    font-weight: bold;
+    line-height: 1.2;
+    font-size: 4.8rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+p {
+    font-family: v.$principalFont;
+    font-size: 1.5rem;
+}
+
+a {
+    font-family: v.$principalFont;
+    text-decoration: none;
+}
+
+a:hover{
+    font-weight: bold;
+    color: v.$fucsia;
+}
+
+del {
+    color: v.$gris;
+    font-size: 1.5rem;
+}
+
+img {
+    width: 80%;
+}
+/** Utilidades **/
+.no-margin {
+    margin: 0;
+}
+.centrar-texto {
+    text-align: center;
+}
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/** Botones **/
+.boton {
+    display: inline-block;
+    color: v.$blanco;
+    text-align: center;
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 999px;
+    font-family: v.$principalFont;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        display: inline-block;
+
+    }
+}
+
+.boton--primario {
+    background-color: v.$azul;
+    margin: 0;
+}
+.boton--primario:hover {
+    background-color: #73a9ff;
+}
+.boton--secundario {
+    background-color: v.$fucsia;
+    border: none;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: v.$blanco;
+    font-weight: bold;
+    font-family: v.$principalFont;
+    font-size: 1.5rem;
+} 
+
+.boton--secundario:hover {
+    cursor: pointer;
+}
+
+.boton:link {
+    text-decoration: none;
+}
+
+.boton:visited {
+    color: v.$blanco;
+    font-family:  v.$principalFont;
+    text-decoration: none;
+}
+
+.boton:hover {
+    cursor: pointer;
+    color: v.$blanco;
+}
+
+/** Cards **/
+.card {
+    margin: 100px auto;
+    background: v.$blanco;
+    width: 350px;
+    height: 480px;
+    padding: 20px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.377);
+    border-radius: 20px;  
+}
+
+.card:hover{
+    cursor: pointer;
+}
+
+.display-none {
+    display: none;
+}

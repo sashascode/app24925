@@ -1,4 +1,4 @@
-import './NavBar.css'
+import './_NavBar.scss'
 import CartWidget from '../CartWidget/CartWidget.js';
 import { SiApple } from 'react-icons/si';
 import { NavLink } from 'react-router-dom';
