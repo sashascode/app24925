@@ -16,7 +16,7 @@ export const Item = ( {product} ) => {
                     <h3>{ product.name }</h3>
                     <h2><span><del>USD { product.price + 350 }</del></span> USD { product.price }</h2>
 
-                    {button && <FadeIn><footer className="boton boton--primario">
+                    {button && <FadeIn transitionDuration={500}><footer className="boton boton--primario">
                         Ver Más
                     </footer></FadeIn> }
                 </div>
