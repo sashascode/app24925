@@ -3,8 +3,8 @@
 
 .bar {
     padding: 2rem;
-    background-color: white;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    background-color: v.$blanco;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.1);
 }
 @media (min-width: 768px) {
     .bar {
@@ -14,17 +14,18 @@
         
     }
 }
+
 .brand {
     color: v.$negro;
-}
-
-.brand:hover {
-    color: v.$fucsia;
+    &:hover {
+        color: v.$fucsia;
+    }
 }
 
 .brand__name {
     font-weight: 400;
 }
+
 .brand__bold {
     font-weight: 700;
 }
@@ -35,6 +36,7 @@
         gap: 2rem;
     }
 }
+
 .navegation__link {
     display: block;
     text-align: center;

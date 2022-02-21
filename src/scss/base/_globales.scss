@@ -39,11 +39,10 @@ p {
 a {
     font-family: v.$principalFont;
     text-decoration: none;
-}
-
-a:hover{
-    font-weight: bold;
-    color: v.$fucsia;
+    &:hover {
+        font-weight: bold;
+        color: v.$fucsia;
+    }
 }
 
 del {
@@ -52,8 +51,9 @@ del {
 }
 
 img {
-    width: 80%;
+    width: 90%;
 }
+
 /** Utilidades **/
 .no-margin {
     margin: 0;
@@ -61,6 +61,11 @@ img {
 .centrar-texto {
     text-align: center;
 }
+
+.display-none {
+    display: none;
+}
+
 .container {
     width: 100%;
     margin: 0 auto;
@@ -79,6 +84,18 @@ img {
     border: none;
     border-radius: 999px;
     font-family: v.$principalFont;
+    &:hover {
+        cursor: pointer;
+        color: v.$blanco;
+    }
+    &:link {
+        text-decoration: none;
+    }
+    &:visited {
+        color: v.$blanco;
+        font-family:  v.$principalFont;
+        text-decoration: none;
+    }
 }
 
 @media (min-width: 768px) {
@@ -91,10 +108,11 @@ img {
 .boton--primario {
     background-color: v.$azul;
     margin: 0;
+    &:hover {
+        background-color: #73a9ff;
+    }
 }
-.boton--primario:hover {
-    background-color: #73a9ff;
-}
+
 .boton--secundario {
     background-color: v.$fucsia;
     border: none;
@@ -104,43 +122,29 @@ img {
     font-weight: bold;
     font-family: v.$principalFont;
     font-size: 1.5rem;
+    &:hover {
+        cursor: pointer;
+    }
 } 
-
-.boton--secundario:hover {
-    cursor: pointer;
-}
-
-.boton:link {
-    text-decoration: none;
-}
-
-.boton:visited {
-    color: v.$blanco;
-    font-family:  v.$principalFont;
-    text-decoration: none;
-}
-
-.boton:hover {
-    cursor: pointer;
-    color: v.$blanco;
-}
 
 /** Cards **/
 .card {
     margin: 100px auto;
     background: v.$blanco;
-    width: 350px;
+    width: 300px;
     height: 480px;
     padding: 20px;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.377);
-    border-radius: 20px;  
     text-align: center;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+    border-radius: 10px;;
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+        0 2px 2px rgba(0,0,0,0.11), 
+        0 4px 4px rgba(0,0,0,0.11), 
+        0 6px 8px rgba(0,0,0,0.11),
+        0 8px 16px rgba(0,0,0,0.11);
+ 
+    }
 }
 
-.card:hover{
-    cursor: pointer;
-}
-
-.display-none {
-    display: none;
-}

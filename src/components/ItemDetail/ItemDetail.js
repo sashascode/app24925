@@ -27,7 +27,7 @@ export const ItemDetail = ({product}) => {
 
                         <h2 className="price"><span><del>USD {product.price + 350}</del></span> USD {product.price}</h2>
                 
-                        <ItemCount stock={ product.stock } initial={ 1 } onAdd={ onAdd }/>
+                        <ItemCount stock={product.stock} initial={1} onAdd={onAdd}/>
 
                         <div className="guaranteed">
                             <p><span className="benefits"><IoMdReturnLeft/> Devolucion gratis.</span> Tenés 30 días desde que lo recibís.</p>

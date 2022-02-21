@@ -7,9 +7,9 @@
     font-size: 2rem;
     font-family: v.$principalFont;
     color: v.$negro;
-}
-.cart:hover {
-    cursor: pointer;
-    font-weight: bold;
-    color: v.$fucsia;
+    &:hover {
+        cursor: pointer;
+        font-weight: bold;
+        color: v.$fucsia;
+    }
 }

@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 
 const NavBar = ({brandName1, brandName2}) => {
     return (
-        <>
             <header>
                 <div className="container">
                     <div className="bar">
@@ -51,7 +50,6 @@ const NavBar = ({brandName1, brandName2}) => {
                     </div>
                 </div>
             </header>
-        </>
     )
   }
 
