@@ -2,8 +2,19 @@ import './_NavBar.scss'
 import CartWidget from '../CartWidget/CartWidget.js';
 import { SiApple } from 'react-icons/si';
 import { NavLink } from 'react-router-dom';
+import { getCategories } from '../../asyncmock';
+import { useState, useEffect } from 'react';
 
 const NavBar = ({brandName1, brandName2}) => {
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        getCategories().then((categories) => {
+            setCategories(categories);
+        })
+    },[]);
+
+
     return (
             <header>
                 <div className="container">
@@ -15,38 +26,10 @@ const NavBar = ({brandName1, brandName2}) => {
                         </NavLink>
 
                         <nav className="navegation">
-                            <NavLink
-                            to="/category/mac"
-                            className={({ isActive }) =>
-                            isActive ? "ActiveOption" : "navegation__link"}>
-                                Mac
-                            </NavLink>
-                            
-                            <NavLink
-                            to="/category/iphone"
-                            className={({ isActive }) =>
-                            isActive ? "ActiveOption" : "navegation__link"}>
-                                iPhone
-                            </NavLink>
-
-                            <NavLink
-                            to="/category/ipad"
-                            className={({ isActive }) =>
-                            isActive ? "ActiveOption" : "navegation__link"}>
-                                iPad
-                            </NavLink>
-
-                            <NavLink
-                            to="/category/accesorios"
-                            className={({ isActive }) =>
-                            isActive ? "ActiveOption" : "navegation__link"}>
-                                Accesorios
-                            </NavLink>
-
+                            {categories.map((cat) => <NavLink key={cat.id} to={`/category/${cat.id}`} className={({isActive}) => 
+                                isActive ? "ActiveOption" : "navegation__link"}> {cat.description} </NavLink>  )}
                             <CartWidget/>
-    
                         </nav>
-
                     </div>
                 </div>
             </header>

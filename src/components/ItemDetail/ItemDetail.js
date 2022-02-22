@@ -2,16 +2,17 @@ import './_ItemDetail.scss'
 import ItemCount from '../ItemCount/ItemCount'
 import { IoMdReturnLeft } from 'react-icons/io'
 import { FaMedal } from 'react-icons/fa'
+import { useState } from 'react' 
+import { NavLink } from 'react-router-dom' 
 
 
 
-export const ItemDetail = ({product}) => {
+export const ItemDetail = ({name, price, description, img, stock}) => {
+    const [count, setCount] = useState(0);
 
     const onAdd = (count) => {
-        if(count > 1){
-        console.log(`Se agregaron ${count} articulos al carrito`);
-        } else {
-            console.log(`Se agrego ${count} articulo al carrito`);
+        if(count > 0){
+            setCount(count);
         }
     }
 
@@ -19,15 +20,15 @@ export const ItemDetail = ({product}) => {
         <>
             <div className="container">
                 <div className="card-detail">
-                    <img className="image" src={product.img} alt={product.name}/>
+                    <img className="image" src={img} alt={name}/>
 
                     <div className="product-details">
-                        <h3>{product.name}</h3>
-                        <p>{product.description}</p>
+                        <h3>{name}</h3>
+                        <p>{description}</p>
 
-                        <h2 className="price"><span><del>USD {product.price + 350}</del></span> USD {product.price}</h2>
+                        <h2 className="price"><span><del>USD {price + 350}</del></span> USD {price}</h2>
                 
-                        <ItemCount stock={product.stock} initial={1} onAdd={onAdd}/>
+                        {count ?  <NavLink to="/cart"> <button className="boton boton--finish">Finalizar Compra</button> </NavLink> : <ItemCount stock={stock} initial={1} onAdd={onAdd}/>}
 
                         <div className="guaranteed">
                             <p><span className="benefits"><IoMdReturnLeft/> Devolucion gratis.</span> Tenés 30 días desde que lo recibís.</p>

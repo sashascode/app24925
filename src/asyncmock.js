@@ -23,7 +23,14 @@ const products = [
     {id: 5, name: "Apple Magic Keyboard con Touch ID", price: 450, description: 'Por primera vez, el Magic Keyboard viene con Touch ID para iniciar sesión y hacer compras de forma segura mediante una autenticación fácil y rápida.', img: magickeyboard, img2: magickeyboard2, category: 'accesorios', stock: 8},
     {id: 6, name: "Parlante Bluetooth Bose SoundLink Revolve", price: 600, description: 'El parlante Bose SoundLink Revolve es uno de nuestros altavoces Bluetooth portátiles de mejor rendimiento hasta ahora. Ofrece un verdadero sonido en 360° para una cobertura uniforme y constante.', img: parlante, img2: parlante2, category: 'accesorios', stock: 2},
     {id: 7, name: "iPhone 12 mini 128 GB", price: 1380, description: 'El chip A14 Bionic, el más rápido en un smartphone. Una pantalla OLED de borde a borde. Un nuevo frente de Ceramic Shield, cuatro veces más resistente a las caídas. Además, ahora el modo Noche viene en todas las cámaras. El iPhone 12 mini lo tiene todo.', img: iphone12, img2: iphone122, category: 'iphone', stock: 11},
-    {id: 8, name: "iPad Pro 11\"Chip M1 Wi-Fi + Cellular - 2TB (3era Gen)", price: 700, description: 'El iPad en su máxima expresión. Un rendimiento fuera de serie con el chip M1, una espectacular pantalla XDR y conexión inalámbrica ultrarrápida. El iPad Pro está listo para todo.', img: ipadpro, img2: ipadpro2, category: 'ipad', stock: 7}
+    {id: 8, name: "iPad Pro 11\"Chip M1 Wi-Fi + Cellular - 2TB (3era Gen)", price: 1460, description: 'El iPad en su máxima expresión. Un rendimiento fuera de serie con el chip M1, una espectacular pantalla XDR y conexión inalámbrica ultrarrápida. El iPad Pro está listo para todo.', img: ipadpro, img2: ipadpro2, category: 'ipad', stock: 7}
+]
+
+const categories = [
+    {id: 'mac', description: 'Mac'},
+    {id: 'iphone', description: 'iPhone'},
+    {id: 'ipad', description: 'iPad'},
+    {id: 'accesorios', description: 'Accesorios'}
 ]
 
 export const getProducts = (category) => {
@@ -42,6 +49,14 @@ export const getProduct = (id) => {
             res(prod);
         }, 2000);      
     });
+}
+
+export const getCategories = () => {
+    return new Promise((res) => {
+        setTimeout(() => {
+            res(categories);
+        }, 1000)
+    })
 }
 
 

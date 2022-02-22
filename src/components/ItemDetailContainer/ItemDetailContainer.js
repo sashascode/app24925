@@ -20,7 +20,7 @@ export const ItemDetailContainer = () => {
     return(
         <>
             {spinner && <Spinner />}
-            {!spinner && <ItemDetail product={product}/>}
+            {!spinner && <ItemDetail {...product}/>}
         </>
     );
 

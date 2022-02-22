@@ -21,8 +21,10 @@ const ItemListContainer = () => {
     return(
         <>
             {spinner ? <Spinner /> :
-            <div className="container-productos"> 
-                <ItemList products={products}/> 
+            <div className="container"> 
+                <div className="productos">
+                    <ItemList products={products}/>
+                </div>
             </div>
             }
         </>

@@ -1,15 +1,21 @@
 @use '../../scss/base/globales';
+@use '../../scss/base/mixins' as m;
 
-@media (min-width: 768px) {
-.container-productos {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    align-items: center;
-    column-gap: 2rem;
-    width: 70%;
-    margin: 0 auto;
-    margin-top: 120px;
-    grid-template-rows: 400px;
-}
-}
-
+.productos {
+    width: 100%;
+    margin: 50px auto;
+    place-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    @include m.tablet {
+        @include m.grid(2,1rem);
+    }
+    @include m.desktop {
+        @include m.grid(3,1rem);  
+        width: 70%; 
+    }
+    @include m.desktopXL {
+        @include m.grid(4,4rem);   
+    }
+}   
