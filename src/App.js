@@ -3,6 +3,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
+import {Slider} from './components/Slider/Slider'
 
 function App() {
   
@@ -12,7 +13,7 @@ function App() {
     <BrowserRouter>
       <NavBar brandName1="i" brandName2="Store" />
       <Routes>
-      <Route path='/' element={<ItemListContainer/>}/>
+      <Route path='/' element={<><ItemListContainer/><Slider/></>}/>
       <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
       <Route path='/detail/:productId' element={<ItemDetailContainer/>}/>
       </Routes>
