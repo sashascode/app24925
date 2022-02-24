@@ -7,8 +7,6 @@ import { SiApple } from 'react-icons/si';;
 
 const NavBar = ({brandName}) => {
 
-
-
     return (
             <header>
                 <div className="container">

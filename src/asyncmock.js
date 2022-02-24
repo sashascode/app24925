@@ -14,6 +14,10 @@ import iphone12 from './img/iphone12.png'
 import iphone122 from './img/iphone122.png'
 import ipadpro from './img/ipadpro.png'
 import ipadpro2 from './img/ipadpro2.png'
+import ban0 from './img/banners/0.jpg'
+import ban1 from './img/banners/1.jpg'
+import ban2 from './img/banners/2.jpg'
+import ban3 from './img/banners/3.jpg'
 
 const products = [
     {id: 1, name: "iPhone 13 Pro Max 128GB", price: 1500, description: 'El mayor avance en el sistema de cámaras Pro hasta ahora. Pantalla Super Retina XDR con ProMotion que brinda una respuesta más rápida y fluida. Chip A15 Bionic para un rendimiento fuera de serie. Diseño resistente y la mayor duración de batería jamás vista en un iPhone.', img: iphone13, img2: iphone132, category: 'iphone', stock: 10 },
@@ -31,6 +35,13 @@ const categories = [
     {id: 'iphone', description: 'iPhone'},
     {id: 'ipad', description: 'iPad'},
     {id: 'accesorios', description: 'Accesorios'}
+]
+
+const sliderData = [
+    {image: ban0, alt: 'airpods banner' },
+    {image: ban1, alt: 'banner'},
+    {image: ban2, alt: 'banner'},
+    {image: ban3, alt: 'banner'}
 ]
 
 export const getProducts = (category) => {
@@ -59,5 +70,12 @@ export const getCategories = () => {
     })
 }
 
+export const getSliderData = () => {
+    return new Promise((res) => {
+        setTimeout(() => {
+            res(sliderData);
+        }, 2000)
+    })
+}
 
 

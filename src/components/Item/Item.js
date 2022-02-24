@@ -14,10 +14,10 @@ export const Item = ({product}) => {
             <Link to={`/detail/${product.id}`}>
                 <div className="content">
                     <CrossfadeImage duration={200} src={handleHover ? product.img2 : product.img} alt={ product.name }/>
-                    <h3>{ product.name }</h3>
-                    <h2><span><del>USD { product.price + 350 }</del></span> USD { product.price }</h2>
+                    <h3 className='item-name'>{ product.name }</h3>
+                    <h2><span><del>USD { product.price + 350 }</del></span> <span className='item-price'>USD { product.price }</span></h2>
 
-                    {handleHover && <FadeIn transitionDuration={500}><footer className="boton boton--primario">
+                    {handleHover && <FadeIn transitionDuration={500}><footer className="boton boton--ver">
                         Ver Más
                     </footer></FadeIn> }
                 </div>

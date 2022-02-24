@@ -22,6 +22,7 @@ const ItemListContainer = () => {
         <>
             {spinner ? <Spinner /> :
             <div className="container"> 
+                {categoryId ? <h1 className='title1 aling-left'>{categoryId}</h1> : <h1 className='title1'>Completá tu experiencia con estos productos.</h1>}
                 <div className="productos">
                     <ItemList products={products}/>
                 </div>

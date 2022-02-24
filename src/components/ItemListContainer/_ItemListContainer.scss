@@ -1,9 +1,10 @@
 @use '../../scss/base/globales';
 @use '../../scss/base/mixins' as m;
+@use '../../scss/base/variables' as v;
 
 .productos {
     width: 100%;
-    margin: 50px auto;
+    margin: 20px auto;
     place-items: center;
     display: flex;
     flex-direction: column;
@@ -19,3 +20,13 @@
         @include m.grid(4,4rem);   
     }
 }   
+
+.title1 {
+    text-align: center;
+    // margin-left: 290px;
+    display: block;
+    font-size: 4rem;
+    font-family: v.$secondaryFont;
+    color: rgb(29, 29, 29);
+    margin-top: 20px;
+}
