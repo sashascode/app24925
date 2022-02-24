@@ -2,6 +2,7 @@
 @use '../../scss/base/variables' as v;
 
 .cart {
+    position: relative;
     border: none;
     background-color: #252422;
     font-size: 2rem;
@@ -13,3 +14,25 @@
         color: v.$fucsia;
     }
 }
+
+.cart-number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 10px;
+    transform: translate(50%, -50%);
+    font-size: 1rem;
+    font-family: v.$principalFont;
+    font-weight: 600;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    background: v.$fucsia;
+    border-radius: 50%;
+    color: v.$blanco;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+

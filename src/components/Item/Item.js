@@ -2,7 +2,6 @@ import './_Item.scss'
 import { useState } from 'react'
 import FadeIn from 'react-fade-in'
 import { Link } from 'react-router-dom'
-import CrossfadeImage from 'react-crossfade-image'
 
 
 export const Item = ({product}) => {
@@ -13,7 +12,7 @@ export const Item = ({product}) => {
         <div className="card" onMouseEnter={() => setHandleHover(true)} onMouseLeave={()=> setHandleHover(false)}> 
             <Link to={`/detail/${product.id}`}>
                 <div className="content">
-                    <CrossfadeImage duration={200} src={handleHover ? product.img2 : product.img} alt={ product.name }/>
+                    <img src={handleHover ? product.img2 : product.img} alt={ product.name }/>
                     <h3 className='item-name'>{ product.name }</h3>
                     <h2><span><del>USD { product.price + 350 }</del></span> <span className='item-price'>USD { product.price }</span></h2>
 

@@ -2,17 +2,20 @@ import './_ItemDetail.scss'
 import ItemCount from '../ItemCount/ItemCount'
 import { IoMdReturnLeft } from 'react-icons/io'
 import { FaMedal } from 'react-icons/fa'
-import { useState } from 'react' 
+import { useState, useContext } from 'react' 
 import { NavLink } from 'react-router-dom' 
+import Context from '../../context/CartContext'
 
 
 
-export const ItemDetail = ({name, price, description, img, stock}) => {
+export const ItemDetail = ({name, price, description, img, stock, id}) => {
     const [count, setCount] = useState(0);
+    const {addItem} = useContext(Context);
 
     const onAdd = (count) => {
         if(count > 0){
             setCount(count);
+            addItem({name, id, price}, count);
         }
     }
 

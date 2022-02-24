@@ -2,10 +2,11 @@ import './_NavBar.scss'
 import { NavLink } from 'react-router-dom';
 import NavCat from './NavCat'
 import NavIcons from './NavIcons';
-import { SiApple } from 'react-icons/si';;
+import { SiApple } from 'react-icons/si';
 
 
 const NavBar = ({brandName}) => {
+    
 
     return (
             <header>
