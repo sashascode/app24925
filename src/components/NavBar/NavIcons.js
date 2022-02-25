@@ -4,9 +4,9 @@ import CartWidget from '../CartWidget/CartWidget.js';
 
 function NavIcons() {
   return (
-    <div className='nav-icons'>
-        <RiSearchLine className='nav-icon'/>
-        <RiUserLine className='nav-icon'/>
+    <div className='nav__icons'>
+        <RiSearchLine className='nav__icons--icon'/>
+        <RiUserLine className='nav__icons--icon'/>
         <CartWidget/>
     </div>
   )

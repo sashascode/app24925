@@ -7,7 +7,7 @@ const CartWidget = () => {
     const {cart} = useContext(Context);
 
     return(
-        <button className='cart'><FiShoppingCart/> <span className='cart-number'><p>{cart.length}</p></span>  </button> //{cart.length > 0 && cart.length} , className={cart.lenght ? 'cart-number' : 'display-none}
+        <button className='cart'><FiShoppingCart/> <span className='cart__number'><p>{cart.length}</p></span>  </button> //{cart.length > 0 && cart.length} , className={cart.lenght ? 'cart-number' : 'display-none}
     )
 } 
 

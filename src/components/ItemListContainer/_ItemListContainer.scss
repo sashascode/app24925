@@ -2,31 +2,41 @@
 @use '../../scss/base/mixins' as m;
 @use '../../scss/base/variables' as v;
 
-.productos {
-    width: 100%;
-    margin: 20px auto;
-    place-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    @include m.tablet {
-        @include m.grid(2,1rem);
+.item__list {
+    &--title {
+        text-align: center;
+        // margin-left: 290px;
+        display: block;
+        font-size: 4rem;
+        font-family: v.$principalFont;
+        color: #161615;
+        margin-top: 20px;
     }
-    @include m.desktop {
-        @include m.grid(3,1rem);  
-        width: 70%; 
-    }
-    @include m.desktopXL {
-        @include m.grid(4,4rem);   
-    }
-}   
 
-.title1 {
-    text-align: center;
-    // margin-left: 290px;
-    display: block;
-    font-size: 4rem;
-    font-family: v.$principalFont;
-    color: rgb(29, 29, 29);
-    margin-top: 20px;
+    &--product {
+        width: 100%;
+        margin: 20px auto;
+        place-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        @include m.tablet {
+            @include m.grid(2,1rem);
+        }
+
+        @include m.desktop {
+            @include m.grid(3,1rem);  
+            width: 70%; 
+        }
+        
+        @include m.desktopXL {
+            @include m.grid(4,4rem);   
+        }
+    }   
+    
+
 }
+
+
+

@@ -18,6 +18,10 @@ import ban0 from './img/banners/0.jpg'
 import ban1 from './img/banners/1.jpg'
 import ban2 from './img/banners/2.jpg'
 import ban3 from './img/banners/3.jpg'
+import cat1 from './img/categories/mac-category.png'
+import cat2 from './img/categories/iphone-category.png'
+import cat3 from './img/categories/ipad-category.png'
+import cat4 from './img/categories/accessories-category.png'
 
 const products = [
     {id: 1, name: "iPhone 13 Pro Max 128GB", price: 1500, description: 'El mayor avance en el sistema de cámaras Pro hasta ahora. Pantalla Super Retina XDR con ProMotion que brinda una respuesta más rápida y fluida. Chip A15 Bionic para un rendimiento fuera de serie. Diseño resistente y la mayor duración de batería jamás vista en un iPhone.', img: iphone13, img2: iphone132, category: 'iphone', stock: 10 },
@@ -31,10 +35,10 @@ const products = [
 ]
 
 const categories = [
-    {id: 'mac', description: 'Mac'},
-    {id: 'iphone', description: 'iPhone'},
-    {id: 'ipad', description: 'iPad'},
-    {id: 'accesorios', description: 'Accesorios'}
+    {id: 'mac', description: 'Mac', text: 'Velocidad para llevar a todas partes.', img: cat1},
+    {id: 'iphone', description: 'iPhone', text: 'Un salto al siguiente nivel.', img: cat2},
+    {id: 'ipad', description: 'iPad', text: 'Un mundo a todo color.', img: cat3},
+    {id: 'accesorios', description: 'Accesorios', text: 'Completá tu experiencia.', img: cat4}
 ]
 
 const sliderData = [

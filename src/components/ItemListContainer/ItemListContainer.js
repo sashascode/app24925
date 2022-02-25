@@ -21,9 +21,9 @@ const ItemListContainer = () => {
     return(
         <>
             {spinner ? <Spinner /> :
-            <div className="container"> 
-                {categoryId ? <h1 className='title1 aling-left'>{categoryId}</h1> : <h1 className='title1'>Completá tu experiencia con estos productos.</h1>}
-                <div className="productos">
+            <div className="container item__list"> 
+                {categoryId ? <h1 className='item__list--title aling-left'>{categoryId}</h1> : <h1 className='item__list--title'>Productos destacados.</h1>}
+                <div className="item__list--product">
                     <ItemList products={products}/>
                 </div>
             </div>

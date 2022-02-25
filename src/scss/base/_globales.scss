@@ -19,7 +19,7 @@ h1 {
     font-family: v.$principalFont;
     font-weight: bold;
     line-height: 1.2;
-    font-size: 4.8rem;
+    font-size: 4rem;
 }
 
 h2 {
@@ -43,7 +43,7 @@ a {
 
 del {
     color: v.$gris;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 img {
@@ -138,7 +138,7 @@ img {
 .card {
     background: v.$blanco;
     width: 290px;
-    height: 460px;
+    height: 450px;
     padding: 20px;
     text-align: center;
     // box-shadow: 0 3px 3px rgba(0,0,0,0.2);

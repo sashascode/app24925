@@ -14,11 +14,11 @@ function NavCat() {
 
 
   return (
-    <nav className="navegation stroke">
+    <nav className="nav__links stroke">
         {categories.map((cat) => 
             <li key={cat.id}>
                 <NavLink key={cat.id} to={`/category/${cat.id}`} className={({isActive}) => 
-                    isActive ? "ActiveOption" : "navegation__link"}>
+                    isActive ? "nav__links--active" : "nav__links--category"}>
                         {cat.description} 
                 </NavLink> 
             </li> )}

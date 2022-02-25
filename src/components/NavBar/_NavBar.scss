@@ -2,41 +2,59 @@
 @use '../../scss/base/variables' as v;
 @use '../../scss/base/mixins' as m;
 
-.bar {
+// Bar + Brand
+.nav__bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
     padding: 1.5rem;
     background-color: v.$soft-black;
-    // box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+
+    &--brand {
+        color: v.$blanco;
+        &:hover {
+            color: v.$fucsia;
+        }
+        .bold {
+            font-weight: 600;
+        }
+
+        &--icon {
+            font-size: 3.5rem;
+        }
+    }
+
+
 }
+
 @include m.tablet {
-    .bar {
+    .nav__bar {
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;  
     }
 }
 
-.brand {
-    color: v.$blanco;
-    &:hover {
+// Navegation Links
+
+.nav__links {
+    &--category {
+        display: block;
+        text-align: center;
+        font-size: 1.7rem;
+        font-weight: 400;
+        color: v.$blanco;
+    }
+
+    &--active{
+        display: block;
+        text-align: center;
+        font-size: 1.8rem;
         color: v.$fucsia;
+    
     }
 }
-
-.brand__bold {
-    font-weight: 600;
-}
-
-@include m.tablet {
-    .navegation {
-        display: flex;
-        gap: 2rem;
-    }
-}
-
 
 .stroke li {
     position: relative;
@@ -58,29 +76,19 @@
         }
 }
 
-.navegation__link {
-    display: block;
-    text-align: center;
-    font-size: 1.8rem;
-    color: v.$blanco;
+@include m.tablet {
+    .nav__links {
+        display: flex;
+        gap: 2rem;
+    }
 }
 
-.apple-icon {
-    font-size: 4rem;
-}
+// Icons
 
-.ActiveOption{
-    display: block;
-    text-align: center;
-    font-size: 1.8rem;
-    color: v.$fucsia;
-
-}
-
-.nav-icons {
+.nav__icons {
     display: flex;
     gap: 2rem;
-    .nav-icon {
+    &--icon {
         font-size: 2rem;
         font-family: v.$principalFont;
         color: v.$blanco;

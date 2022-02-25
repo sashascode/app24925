@@ -33,18 +33,18 @@ function Slider() {
 
   }, [])
 
-  if(length === 0){
+  if(!length){
     return <Spinner/>;
   }
 
   return (
     <section className='slider'>
-      <MdArrowBackIos className='back-arrow' onClick={prevSlide}/>
-      <MdArrowForwardIos className='forward-arrow' onClick={nextSlide} />
+      <MdArrowBackIos className='slider__back-arrow' onClick={prevSlide}/>
+      <MdArrowForwardIos className='slider__forward-arrow' onClick={nextSlide} />
       {images.map((slide, index) => {
         return(
           <div key={index} className={index === current ? 'slide active' : 'slide'}>
-            {index === current && (<img src={slide.image} alt={slide.alt} className='image-banner' />)}
+            {index === current && (<img src={slide.image} alt={slide.alt} className='slider__image-banner' />)}
           </div>
         )
       })}

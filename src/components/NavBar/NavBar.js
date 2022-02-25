@@ -10,11 +10,11 @@ const NavBar = ({brandName}) => {
 
     return (
             <header>
-                <div className="container">
-                    <div className="bar">
-                        <NavLink to="/" className="brand">
-                            <h1 className="brand__name no-margin centrar-texto">
-                                <span className='apple-icon'><SiApple/></span><span className="brand__bold"> {brandName}</span>
+                <div className="container nav">
+                    <div className="nav__bar">
+                        <NavLink to="/" className="nav__bar--brand">
+                            <h1 className="nav__bar--brand--name no-margin centrar-texto">
+                                <span className='"nav__bar--brand--icon'><SiApple/></span><span className="bold">{brandName}</span>
                             </h1>    
                         </NavLink>
                         <NavCat/>
