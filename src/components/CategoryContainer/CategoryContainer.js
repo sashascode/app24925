@@ -14,7 +14,7 @@ function CategoryContainer() {
             setCategories(categories);
             setSpinner(false);
         });
-    },[categories]);
+    },[]);
 
   return (
     <section className='container category__container'>

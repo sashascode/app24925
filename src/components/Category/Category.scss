@@ -2,3 +2,22 @@
 @use '../../scss/base/variables' as v;
 @use '../../scss/base/mixins' as m;
 
+.card__category {
+    margin: 20px auto;
+    background: rgb(245, 243, 243);
+    padding: 20px;
+    // border-radius: 20px;
+    text-align: center;
+    width: 500px;
+    height: 200px;
+    position: relative;
+    
+
+    &--image {
+        width: 50%;
+        position: absolute;
+
+    }
+
+
+}
