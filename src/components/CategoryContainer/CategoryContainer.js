@@ -6,20 +6,29 @@ import './CategoryContainer.scss'
 
 
 function CategoryContainer() {
-    const [categories, setCategories] = useState([]);
-    const [spinner, setSpinner] = useState(true);
+  const [categories, setCategories] = useState([]);
+  const [spinner, setSpinner] = useState(true);
 
-    useEffect(() => {
-        getCategories().then((categories) => {
-            setCategories(categories);
-            setSpinner(false);
-        });
-    },[]);
+  useEffect(() => {
+      getCategories().then((categories) => {
+          setCategories(categories);
+          setSpinner(false);
+      });
+  },[]);
+
+  if(spinner){
+    return <Spinner/>;
+  }
 
   return (
-    <section className='container category__container'>
-        {spinner ? <Spinner/> : <CategoryList categories={categories}/>}
-    </section>
+    <>
+      <div className="white-bg">
+        <section className='container category__container'>
+          <CategoryList categories={categories} />
+        </section>
+      </div> 
+    </> 
+    
   )
 }
 

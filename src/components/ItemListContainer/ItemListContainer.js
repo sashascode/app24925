@@ -22,7 +22,7 @@ const ItemListContainer = () => {
         <>
             {spinner ? <Spinner /> :
             <div className="container item__list"> 
-                {categoryId ? <h1 className='item__list--title aling-left'>{categoryId}</h1> : <h1 className='item__list--title'>Productos destacados.</h1>}
+                {categoryId ? <h1 className='item__list--title aling-left'>{/*categoryId*/}</h1> : <h1 className='item__list--title'>Productos destacados.</h1>}
                 <div className="item__list--product">
                     <ItemList products={products}/>
                 </div>

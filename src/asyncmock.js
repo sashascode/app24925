@@ -35,8 +35,8 @@ const products = [
 ]
 
 const categories = [
-    {id: 'mac', description: 'Mac', text: 'Velocidad para llevar a todas partes.', img: cat1},
     {id: 'iphone', description: 'iPhone', text: 'Un salto al siguiente nivel.', img: cat2},
+    {id: 'mac', description: 'MacBook', text: 'Velocidad para llevar a todas partes.', img: cat1},
     {id: 'ipad', description: 'iPad', text: 'Un mundo a todo color.', img: cat3},
     {id: 'accesorios', description: 'Accesorios', text: 'Completá tu experiencia.', img: cat4}
 ]
@@ -70,7 +70,7 @@ export const getCategories = () => {
     return new Promise((res) => {
         setTimeout(() => {
             res(categories);
-        }, 1000)
+        }, 2000)
     })
 }
 

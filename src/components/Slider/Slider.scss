@@ -10,7 +10,7 @@
     &__forward-arrow {
         position: absolute;
         top: 50%;
-        right: 32px;
+        right: 3.2rem;
         font-size: 4rem;
         color: v.$soft-black;
         z-index: 10;
@@ -21,7 +21,7 @@
     &__back-arrow {
         position: absolute;
         top: 50%;
-        left: 32px;
+        left: 3.2rem;
         font-size: 4rem;
         color: v.$soft-black;
         z-index: 10;
@@ -30,8 +30,8 @@
     }
 
     &__image-banner {
-        width: 1920px;
-        height: 540px;
+        width: 192rem;
+        height: 54rem;
     }
 
 }

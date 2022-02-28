@@ -3,9 +3,9 @@
 @use '../../scss/base/mixins' as m;
 
 .card__detail {
-    margin: 100px auto;
+    margin: 10rem auto;
     background: v.$blanco;
-    padding: 20px;
+    padding: 2rem;
     // border-radius: 20px;
     text-align: center;
     box-shadow: 
@@ -16,8 +16,8 @@
         0 16px 16px rgba(0,0,0,0.12);
 
     @include m.tablet {
-        width: 950px;
-        height: 480px; 
+        width: 95rem;
+        height: 48rem; 
 
         &--benefits {
             text-align: left;
@@ -27,7 +27,7 @@
             width: 45%;
             text-align: center;
             float: left;
-            margin-top: -30px;
+            margin-top: -3rem;
         }
     
     }

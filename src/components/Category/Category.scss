@@ -3,21 +3,41 @@
 @use '../../scss/base/mixins' as m;
 
 .card__category {
-    margin: 20px auto;
     background: rgb(245, 243, 243);
-    padding: 20px;
-    // border-radius: 20px;
-    text-align: center;
-    width: 500px;
-    height: 200px;
+    width: 50rem;
+    height: 20rem;
     position: relative;
-    
+    text-align: center;
 
     &--image {
-        width: 50%;
+        width: 40%;
         position: absolute;
-
+        margin-top: -9rem;
+        top: 7rem; /* ajustar los valores para mover la imagen */
+        right: 2.5rem;
     }
 
+    &--title, &--text {
+        text-align: left;
+        margin-left: 2rem;
+        margin-bottom: 0;
+    }
 
+    &--title {
+        font-size: 3rem;
+        color: v.$soft-black;
+        font-weight: medium;
+    }
+
+    button {
+        text-transform: none;
+        font-weight: normal;
+    }
+
+}
+
+.aling-izq {
+    float: left;
+    margin-top: 2rem;
+    margin-left: 1.5rem;
 }

@@ -1,5 +1,5 @@
-$principalFont: 'SFP', sans-serif;
-// $secondaryFont:  //todavia no se q fuente elegir :$
+
+$principalFont: 'SF UI Display', sans-serif;
 $gris: #cfcfcf;
 $blanco: #ffffff;
 $negro: #000000;
@@ -11,6 +11,20 @@ $violeta: #8338ec;
 $naranja: #fb5607;
 
 @font-face {
-    font-family: SFP;
-    src: local('../../font/SFPRODISPLAYBOLD.OTF'), local('../../font/SFPRODISPLAYMEDIUM.OTF'), local('../../font/SFPRODISPLAYREGULAR.OTF');
+    font-family: 'SF UI Display';
+    src: local('../../font/SF-UI-Display-Medium.otf');
+    font-weight: 500;
 }
+
+@font-face {
+    font-family: 'SF UI Display';
+    src: local('../../font/SF-UI-Display-Regular.otf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'SF UI Display';
+    src: local('../../font/SF-UI-Display-Semibold.otf');
+    font-weight: 600;
+}
+
