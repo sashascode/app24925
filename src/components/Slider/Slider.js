@@ -22,16 +22,8 @@ function Slider() {
     getSliderData().then((images) => {
       setImages(images);
     });
-
-    //  const interval = setInterval(() => {
-    //   nextSlide();
-    //  },8000)
-
-    // return function cleanup() {
-    //  clearInterval(interval);
-    // }
-
   }, [])
+
 
   if(!length){
     return <Spinner/>;

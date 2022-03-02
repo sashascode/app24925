@@ -1,0 +1,138 @@
+@use '../../scss/base/globales';
+@use '../../scss/base/variables' as v;
+@use '../../scss/base/mixins' as m;
+
+body, main {
+    display: grid;
+    grid-gap: 1rem;
+}
+
+main {
+    grid-template: 
+    "content" 
+    "summary" 
+    "actions" 
+    "help"
+}
+
+@media ( min-width: 50rem ) {
+    main {
+      grid-template: 
+        "promo promo"
+        "content summary" 
+        "content actions" 
+        "content help";
+      grid-template-columns: auto 60rem;
+    }
+}
+
+.cart__summary { grid-area: summary; }
+.cart__actions { grid-area: actions; }
+.cart__items { grid-area: content; }
+.cart__help { grid-area: help; }
+
+  
+.cart__summary {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 18px;
+    background: v.$grisaseo;
+    .cart--total { 
+      font-weight: bold;  
+      text-align: right; 
+    }
+}
+  
+  .cart__items {
+      background-color: v.$grisaseo;
+    .cart__item { 
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 18px;
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px dotted black;
+      }
+    }
+    .cart__item--name {
+      font-size: 18px;
+      font-weight: 400;
+      margin: 0;
+    }
+  }
+  @media ( min-width: 50rem ) {
+    .cart__items { padding: 2rem 1rem; }
+    .cart__items .cart__item--name,
+    .cart__items .cart__item--count, 
+    .cart__items .cart__item--price { font-size: 24px; }
+  }
+  
+  .cart__actions {
+    background-color: v.$grisaseo;
+    text-align: center;
+  }
+  
+  .cart__help {
+    color: v.$negro;
+    background: v.$grisaseo;
+    font-size: 2rem;
+    text-align: center;
+    &:hover {
+        cursor: pointer;
+        color: v.$azul;
+    }
+  }
+  
+  .section {
+    padding: 4rem;
+  }
+  
+  .cart__header{
+    box-shadow: none;
+    color: v.$blanco;
+    background: v.$soft-black;
+    padding: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  #cart {
+    color: black;
+    padding: 2rem;
+    background: white;
+    font-weight: 300;
+  }
+  
+  ul { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+  }
+
+  .cart__item--image {
+      width: 10%;
+  }
+
+  .cart__item--container:not(:first-child){
+    border-top: v.$gris solid 1px; 
+  }
+  
+  .cart__item--trash {
+      color: v.$gris;
+      &:hover{
+          cursor: pointer;
+          color: v.$fucsia;
+      }
+  }
+
+  //** Empty **//
+  .empty {
+      width: 70%;
+      text-align: center;
+  }
+
+  .empty__title {
+      font-weight: 400;
+  }

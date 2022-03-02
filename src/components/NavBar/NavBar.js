@@ -1,9 +1,10 @@
 import './_NavBar.scss'
 import { NavLink } from 'react-router-dom';
-import NavCat from './NavCat'
-import NavIcons from './NavIcons';
 import { SiApple } from 'react-icons/si';
-
+import { getCategories } from '../../asyncmock';
+import { useState, useEffect } from 'react';
+import { RiUserLine, RiSearchLine } from 'react-icons/ri';
+import CartWidget from '../CartWidget/CartWidget.js';
 
 const NavBar = ({brandName}) => {
     
@@ -26,3 +27,37 @@ const NavBar = ({brandName}) => {
   }
 
 export default NavBar;
+
+function NavCat() {
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        getCategories().then((categories) => {
+            setCategories(categories);
+        })
+    },[]);
+
+
+  return (
+    <nav className="nav__links stroke">
+        {categories.map((cat) => 
+            <li key={cat.id}>
+                <NavLink key={cat.id} to={`/category/${cat.id}`} className={({isActive}) => 
+                    isActive ? "nav__links--active" : "nav__links--category"}>
+                        {cat.description} 
+                </NavLink> 
+            </li> )}
+    </nav>
+
+  )
+}
+
+function NavIcons() {
+  return (
+    <div className='nav__icons'>
+        <RiSearchLine className='nav__icons--icon'/>
+        <RiUserLine className='nav__icons--icon'/>
+        <CartWidget/>
+    </div>
+  )
+}

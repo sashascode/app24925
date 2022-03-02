@@ -1,13 +1,14 @@
 import './_CartWidget.scss';
 import { FiShoppingCart}  from 'react-icons/fi';
 import Context from '../../context/CartContext';
-import { useContext } from 'react';
+import { useContext} from 'react';
+import {Link} from 'react-router-dom';
 
 const CartWidget = () => {
-    const {cart} = useContext(Context);
+    const {cart, getQuantity} = useContext(Context);
 
     return(
-        <button className='cart'><FiShoppingCart/> <span className='cart__number'><p>{cart.length}</p></span>  </button> //{cart.length > 0 && cart.length} , className={cart.lenght ? 'cart-number' : 'display-none}
+        <Link to='/cart'><button className='cart--icon'><FiShoppingCart/> {cart.length ? <span className='cart--icon__number'><p>{getQuantity()}</p></span> : null}  </button></Link> 
     )
 } 
 

@@ -15,7 +15,7 @@ export const ItemDetail = ({name, price, description, img, stock, id}) => {
     const onAdd = (count) => {
         if(count > 0){
             setCount(count);
-            addItem({name, id, price}, count);
+            addItem({name, id, price, img}, count);
         }
     }
 

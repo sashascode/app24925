@@ -38,6 +38,26 @@ export function CartContext({children}) {
         return cart.some(p => p.id === id)
     }
 
+    const getQuantity = () => {
+        const countArray = cart.map(p => p.count);
+        
+        if(countArray.length){
+            return countArray.reduce((acc, item) => acc += item);
+        } else {
+            return 0;
+        }
+    }
+
+    const getTotal = () => {
+        const countArray = cart.map(p => p.price);
+        
+        if(countArray.length){
+            return countArray.reduce((acc, item) => acc += item);
+        } else {
+            return 0;
+        }
+    }
+
     console.log(cart);
 
   return (
@@ -45,7 +65,9 @@ export function CartContext({children}) {
         cart,
         addItem,
         removeItem,
-        clear
+        clear,
+        getQuantity,
+        getTotal
     }}>
         {children}
     </Context.Provider>
