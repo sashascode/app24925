@@ -25,8 +25,8 @@ function Cart() {
                 
                 <main>
                     <section className="cart__summary section">
-                    <div className="cart--items__quantity">{`🛒${getQuantity()}  items`}</div>
-                    <div className="cart--total">{`Total: $${getTotal()} 💲`}</div>
+                    <div className="cart__summary--quantity">{`🛒${getQuantity()}  items`}</div>
+                    <div className="cart__summary--total">{`Total: $${getTotal()} 💲`}</div>
                     </section>
                     
                     <section className="cart__actions section">
