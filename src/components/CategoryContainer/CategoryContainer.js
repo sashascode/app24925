@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";
-import { getCategories } from '../../asyncmock';
 import CategoryList from '../CategoryList/CategoryList';
 import { Spinner } from '../Spinner/spinner.js';
-import './CategoryContainer.scss'
-
+import './CategoryContainer.scss';
+import { getDocs, collection} from 'firebase/firestore';
+import { db } from '../../services/firebase/firebase';
 
 function CategoryContainer() {
   const [categories, setCategories] = useState([]);
   const [spinner, setSpinner] = useState(true);
 
   useEffect(() => {
-      getCategories().then((categories) => {
-          setCategories(categories);
-          setSpinner(false);
-      });
+    setSpinner(true);
+    const collectionRef = collection(db, 'categories');
+    getDocs(collectionRef).then(querySnapshot => {
+        const categories = querySnapshot.docs.map(cat => {
+            return {id: cat.id, ...cat.data()};
+        })
+        setCategories(categories);
+    }).finally(() => setSpinner(false));
   },[]);
 
   if(spinner){

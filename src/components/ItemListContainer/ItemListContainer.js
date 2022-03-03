@@ -1,9 +1,10 @@
-import { getProducts } from '../../asyncmock'
 import { ItemList } from '../ItemList/ItemList.js'
 import { useEffect, useState } from 'react'
 import { Spinner } from '../Spinner/spinner.js'
 import { useParams } from "react-router-dom";
 import './_ItemListContainer.scss'
+import { getDocs, collection, query, where } from 'firebase/firestore' 
+import {db} from '../../services/firebase/firebase'
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
@@ -11,18 +12,26 @@ const ItemListContainer = () => {
     const {categoryId} = useParams();
 
     useEffect(() => {
+
         setSpinner(true);
-        getProducts(categoryId).then((products) => { //fetch('https://api.mercadolibre.com/sites/MLA/search?q=iphone').then(response => {return response.json()}).then(res => mapeamos los productos que estan en res.results)
-            setSpinner(false);
+        
+        const collectionRef = categoryId ?
+                query(collection(db,'products'), where('category', '==', categoryId)) :
+                collection(db, 'products');
+        getDocs(collectionRef).then(querySnapshot => {
+            const products = querySnapshot.docs.map((doc) => {
+                return {id: doc.id, ...doc.data()};
+            })
             setProducts(products);
-        })
-    },[categoryId])
+        }).finally(() => setSpinner(false));
+
+    },[categoryId]);
 
     return(
         <>
             {spinner ? <Spinner /> :
             <div className="container item__list"> 
-                {categoryId ? <h1 className='item__list--title aling-left'>{/*categoryId*/}</h1> : <h1 className='item__list--title'>Productos destacados.</h1>}
+                {categoryId ? null : <h1 className='item__list--title'>Productos destacados.</h1>}
                 <div className="item__list--product">
                     <ItemList products={products}/>
                 </div>

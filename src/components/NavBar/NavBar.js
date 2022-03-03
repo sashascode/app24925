@@ -1,10 +1,11 @@
 import './_NavBar.scss'
 import { NavLink } from 'react-router-dom';
 import { SiApple } from 'react-icons/si';
-import { getCategories } from '../../asyncmock';
 import { useState, useEffect } from 'react';
 import { RiUserLine, RiSearchLine } from 'react-icons/ri';
 import CartWidget from '../CartWidget/CartWidget.js';
+import { getDocs, collection} from 'firebase/firestore';
+import { db } from '../../services/firebase/firebase';
 
 const NavBar = ({brandName}) => {
     
@@ -32,7 +33,11 @@ function NavCat() {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        getCategories().then((categories) => {
+        const collectionRef = collection(db, 'categories');
+        getDocs(collectionRef).then(querySnapshot => {
+            const categories = querySnapshot.docs.map(cat => {
+                return {id: cat.id, ...cat.data()};
+            })
             setCategories(categories);
         })
     },[]);
