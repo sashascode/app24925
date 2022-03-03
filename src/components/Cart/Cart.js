@@ -10,8 +10,10 @@ function Cart() {
     if(!cart.length){
         return(
             <div className='empty container'>
+                <img src='./img/empty-cart.png' alt='empty cart'></img>
                 <h2 className='empty__title'>No hay productos en el carrito</h2>
-                <Link to={'/'}><button className='boton boton--primario'>Volver al inicio</button></Link>
+                <p>Por favor agrega algo a tu carrito</p>
+                <Link to={'/'}><button className='boton boton--primario'>Seguir comprando</button></Link>
             </div>
         ) 
     }
@@ -26,7 +28,7 @@ function Cart() {
                 <main>
                     <section className="cart__summary section">
                     <div className="cart__summary--quantity">{`🛒${getQuantity()}  items`}</div>
-                    <div className="cart__summary--total">{`Total: $${getTotal()} 💲`}</div>
+                    <div className="cart__summary--total">{`Total: USD ${getTotal()} 💲`}</div>
                     </section>
                     
                     <section className="cart__actions section">

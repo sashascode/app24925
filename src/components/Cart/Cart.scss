@@ -50,7 +50,7 @@ main {
 .cart__summary {
     display: flex;
     justify-content: space-evenly;
-    font-size: 18px;
+    font-size: 1.8rem;
     background: v.$grisaseo;
     &--total { 
       font-weight: bold;  
@@ -66,7 +66,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-size: 18px;
+  font-size: 1.8rem;
 
   &:not(:last-child) {
     margin-bottom: 0.5rem;
@@ -76,7 +76,7 @@ main {
 
   &--name {
     font-size: 2rem;
-    font-weight: 400;
+    font-weight: 600;
     margin: 0;
   }
 
@@ -86,6 +86,7 @@ main {
     position: relative;
     top: -28rem;
     font-size: 3rem;
+    margin-right: 6rem;
     &:hover{
       cursor: pointer;
       color: v.$fucsia;
@@ -105,7 +106,13 @@ main {
   .cart__items { padding: 2rem 1rem; }
   .cart__items .cart__item--name,
   .cart__items .cart__item--count, 
-  .cart__items .cart__item--price { font-size: 2rem; text-align: center; float: center; position: relative; top: -18rem }
+  .cart__items .cart__item--price { 
+    font-size: 2rem; 
+    text-align: center; 
+    float: center; 
+    position: relative; 
+    top: -18rem ;
+  }
 }
   
 .cart__actions {
@@ -137,6 +144,16 @@ main {
 .empty {
   width: 70%;
   text-align: center;
+  color: v.$violeta;
+
+  p {
+    color: v.$soft-black;
+  }
+
+  img {
+    margin-top: 3rem;
+    width: 40%;
+  }
 }
 
 .empty__title {
