@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 
 function Cart() {
     const {cart, getQuantity, getTotal, removeItem} = useContext(Context);
+    
 
     if(!cart.length){
         return(
@@ -19,7 +20,7 @@ function Cart() {
     }
 
     return (
-        <body id='cart'>
+        <div id='cart'>
             <div className='cart'>
                 <header className='cart__header'>
                     <h1>Carrito</h1>
@@ -32,34 +33,31 @@ function Cart() {
                     </section>
                     
                     <section className="cart__actions section">
-                    <button className='boton boton--primario'>Ir a pagar 💳</button>
+                    <button className='boton boton--primario'>Ir a pagar </button>
+                    <img src='https://www.rimaya.com.ar/img/cms/pagos.png' alt='formas de pago'></img>
                     </section>
 
-                    <section className="cart__items section">
+                    <section className="cart__items">
                     <ul>
-                        <li className="cart__item">
+                        
                             {cart.map((i) => {
                                 return(
-                                <>
-                                    <div key={i.id} className='cart__item--container'>
-                                    <img src={i.img} alt={i.name} className='cart__item--image'/>
-                                    <h3 className="cart__item--name">{i.name}</h3>
-                                    <p className="cart__item--price">{`Precio: $${i.price}`}</p>
-                                    <p className='cart__item--count'>{`Cantidad: ${i.count}`}</p>
-                                    <span onClick={() => removeItem(i.id)}><FaRegTrashAlt className='cart__item--trash'></FaRegTrashAlt></span>
+                                <li key={i.id} className="cart__item">
+                                    <div className='cart__item--container'>
+                                        <img src={i.img} alt={i.name} className='cart__item--image'/>
+                                        <h3 className="cart__item--name">{i.name}</h3>
+                                        <p className="cart__item--price">{`Precio unitario: $${i.price}`}</p>
+                                        <p className='cart__item--count'>{`Cantidad: ${i.count}`}</p>
+                                        <span onClick={() => removeItem(i.id)}><FaRegTrashAlt className='cart__item--trash'></FaRegTrashAlt></span>
                                     </div>
-                                </>
+                                </li>
                             )})}
-                        </li>
+                        
                     </ul>
-                    </section>
-
-                    <section className="cart__help section">
-                        ❓ Necesito ayuda
                     </section>
                 </main>
             </div>
-        </body>
+        </div>
     )
 }
 

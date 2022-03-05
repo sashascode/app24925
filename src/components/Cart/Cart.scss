@@ -2,23 +2,19 @@
 @use '../../scss/base/variables' as v;
 @use '../../scss/base/mixins' as m;
 
-body, main {
+ main {
   display: grid;
   grid-gap: 1rem;
-}
-
-main {
   grid-template: 
     "content" 
     "summary" 
     "actions" 
-    "help"
 }
 
 #cart {
   color: black;
   padding: 2rem;
-  background: white;
+  background: v.$grisaseo;
   font-weight: 300;
 }
 
@@ -26,14 +22,14 @@ main {
     main {
       grid-template: 
         "content summary" 
-        "content actions" 
-        "content help";
-      grid-template-columns: auto 60rem;
+        "content actions" ;
+      grid-template-columns: auto 70rem;
     }
 }
 
 .section {
   padding: 4rem;
+  align-items: center;
 }
 
 //* Cart *//
@@ -42,7 +38,6 @@ main {
   &__summary { grid-area: summary; }
   &__actions { grid-area: actions; }
   &__items { grid-area: content; }
-  &__help { grid-area: help; }
 }
 
 
@@ -51,7 +46,7 @@ main {
     display: flex;
     justify-content: space-evenly;
     font-size: 1.8rem;
-    background: v.$grisaseo;
+    background: v.$blanco;
     &--total { 
       font-weight: bold;  
       text-align: right; 
@@ -59,7 +54,7 @@ main {
 }
   
 .cart__items {
-  background-color: v.$grisaseo;
+  background-color: v.$blanco;
 }
 
 .cart__item { 
@@ -71,7 +66,7 @@ main {
   &:not(:last-child) {
     margin-bottom: 0.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px dotted black;
+    border-bottom: v.$gris solid 1px;
   }
 
   &--name {
@@ -96,10 +91,6 @@ main {
   &--image {
     width: 15%;
   }
-  
-  &--container:not(:first-child){
-    border-top: v.$gris solid 1px; 
-  }
 } 
 
 @media ( min-width: 50rem ) {
@@ -111,24 +102,13 @@ main {
     text-align: center; 
     float: center; 
     position: relative; 
-    top: -18rem ;
+    top: -15rem ;
   }
 }
   
 .cart__actions {
-  background-color: v.$grisaseo;
+  background-color: v.$blanco;
   text-align: center;
-}
-  
-.cart__help {
-  color: v.$negro;
-  background: v.$grisaseo;
-  font-size: 2rem;
-  text-align: center;
-  &:hover {
-    cursor: pointer;
-    color: v.$azul;
-  }
 }
   
 .cart__header{
@@ -151,8 +131,8 @@ main {
   }
 
   img {
-    margin-top: 3rem;
-    width: 40%;
+    margin-top: 10rem;
+    width: 50%;
   }
 }
 

@@ -9,7 +9,6 @@ import CategoryContainer from './components/CategoryContainer/CategoryContainer'
 import Cart from './components/Cart/Cart';
 
 function App() {
-  
 
   return (
     <div className="App">

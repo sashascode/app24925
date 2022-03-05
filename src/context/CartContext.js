@@ -1,9 +1,10 @@
-import {createContext, useState} from 'react'
+import {createContext} from 'react'
+import useLocalStorage from '../customHooks/useLocalStorage';
 
 const Context = createContext();
 
 export function CartContext({children}) {
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useLocalStorage('cartStorage', []);
 
     const addItem = (productToAdd, count) => {
 
@@ -42,17 +43,22 @@ export function CartContext({children}) {
         const countArray = cart.map(p => p.count);
         
         if(countArray.length){
-            return countArray.reduce((acc, item) => acc += item);
+            return countArray.reduce((acc, count) => acc += count);
         } else {
             return 0;
         }
     }
 
     const getTotal = () => {
-        const countArray = cart.map(p => p.price);
+        const countArray = cart.map(p => {
+            if(p.count > 1){
+                return p.price * p.count;
+            }
+            return p.price
+        });
         
         if(countArray.length){
-            return countArray.reduce((acc, item) => acc += item);
+            return countArray.reduce((acc, price) => acc += price);
         } else {
             return 0;
         }
@@ -67,7 +73,8 @@ export function CartContext({children}) {
         removeItem,
         clear,
         getQuantity,
-        getTotal
+        getTotal,
+        setCart
     }}>
         {children}
     </Context.Provider>
