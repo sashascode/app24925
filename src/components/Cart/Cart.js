@@ -3,9 +3,10 @@ import {useContext} from 'react'
 import Context from '../../context/CartContext';
 import {FaRegTrashAlt} from 'react-icons/fa'
 import {Link} from 'react-router-dom'
+import ItemCount from '../ItemCount/ItemCount';
 
 function Cart() {
-    const {cart, getQuantity, getTotal, removeItem} = useContext(Context);
+    const {cart, getQuantity, getTotal, removeItem, clear} = useContext(Context);
     
 
     if(!cart.length){
@@ -23,39 +24,43 @@ function Cart() {
         <div id='cart'>
             <div className='cart'>
                 <header className='cart__header'>
-                    <h1>Carrito</h1>
+                    <h1 className='cart__header--heading'>Carrito</h1>
+                    <h5 onClick={() => clear()} className='cart__header--action'>Eliminar todo</h5>
                 </header>
-                
-                <main>
-                    <section className="cart__summary section">
-                    <div className="cart__summary--quantity">{`🛒${getQuantity()}  items`}</div>
-                    <div className="cart__summary--total">{`Total: USD ${getTotal()} 💲`}</div>
-                    </section>
-                    
-                    <section className="cart__actions section">
-                    <button className='boton boton--primario'>Ir a pagar </button>
-                    <img src='https://www.rimaya.com.ar/img/cms/pagos.png' alt='formas de pago'></img>
-                    </section>
+        
+                <div className="cart__items">
+                    {cart.map((i) => {
+                        return(
+                            <div key={i.id} className='cart__item'>
+                                <div className='cart__item--img'>
+                                    <img src={i.img} alt={i.name} className='cart__item--image'/>
+                                </div>
+                                <div className='cart__item--about'>
+                                    <h1 className="cart__item--name" style={{fontSize: 25}}>{i.name}</h1>
+                                    <h3 className='cart__item--detail'>{i.detail}</h3>
+                                </div>
+                                <div className='cart__item--counter'><ItemCount cart={true} stock={i.stock} initial={i.count}/> </div>
+                                <div className='cart__item--prices'>
+                                    <div className='cart__item--amount'>{`$${i.price}`}</div>
+                                    <div className='cart__item--trash'><span onClick={() => removeItem(i.id)}><FaRegTrashAlt/></span></div>
+                                </div>   
+                            </div>
+                        )}
+                    )}      
+                </div>
 
-                    <section className="cart__items">
-                    <ul>
-                        
-                            {cart.map((i) => {
-                                return(
-                                <li key={i.id} className="cart__item">
-                                    <div className='cart__item--container'>
-                                        <img src={i.img} alt={i.name} className='cart__item--image'/>
-                                        <h3 className="cart__item--name">{i.name}</h3>
-                                        <p className="cart__item--price">{`Precio unitario: $${i.price}`}</p>
-                                        <p className='cart__item--count'>{`Cantidad: ${i.count}`}</p>
-                                        <span onClick={() => removeItem(i.id)}><FaRegTrashAlt className='cart__item--trash'></FaRegTrashAlt></span>
-                                    </div>
-                                </li>
-                            )})}
-                        
-                    </ul>
-                    </section>
-                </main>
+                <hr/>
+                        <div className='cart__checkout'> 
+                            <div className='cart__total'>
+                                <div>
+                                    <div className='cart__total--subtotal'>Sub-Total</div>
+                                    <div className='cart__total--items'>{`${getQuantity()} items`}</div>
+                                </div>
+                                <div className='cart__total--amount'>{`$${getTotal()}`}</div>
+                            </div>
+                                <button className='boton boton--primario'>Ir a pagar</button>  
+                        </div> 
+            
             </div>
         </div>
     )

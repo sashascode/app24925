@@ -12,12 +12,12 @@ const ItemListContainer = () => {
     const {categoryId} = useParams();
 
     useEffect(() => {
-
         setSpinner(true);
         
-        const collectionRef = categoryId ?
-                query(collection(db,'products'), where('category', '==', categoryId)) :
-                collection(db, 'products');
+        const collectionRef = categoryId ? //si hay categoryId
+                query(collection(db,'products'), where('category', '==', categoryId)) : //filtro
+                collection(db, 'products'); //sin filtrar
+
         getDocs(collectionRef).then(querySnapshot => {
             const products = querySnapshot.docs.map((doc) => {
                 return {id: doc.id, ...doc.data()};

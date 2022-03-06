@@ -8,14 +8,14 @@ import Context from '../../context/CartContext'
 
 
 
-export const ItemDetail = ({name, price, description, img, stock, id}) => {
+export const ItemDetail = ({name, price, description, img, stock, id, detail}) => {
     const [count, setCount] = useState(0);
     const {addItem} = useContext(Context);
 
     const onAdd = (count) => {
         if(count > 0){
             setCount(count);
-            addItem({name, id, price, img}, count);
+            addItem({name, id, price, img, stock, detail}, count);
         }
     }
 
