@@ -4,20 +4,14 @@ import Context from '../../context/CartContext';
 import {FaRegTrashAlt} from 'react-icons/fa'
 import {Link} from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount';
+import CartEmpty from '../CartEmpty/CartEmpty';
 
 
 function Cart() {
     const {cart, getQuantity, getTotal, removeItem, clear} = useContext(Context);
 
     if(!cart.length){
-        return(
-            <div className='empty container'>
-                <img src='./img/empty-cart.png' alt='empty cart'></img>
-                <h2 className='empty__title'>No hay productos en el carrito</h2>
-                <p>Por favor agrega algo a tu carrito</p>
-                <Link to={'/'}><button className='boton boton--primario'>Seguir comprando</button></Link>
-            </div>
-        ) 
+       return <CartEmpty/>
     }
 
     return (

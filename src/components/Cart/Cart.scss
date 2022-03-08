@@ -147,24 +147,3 @@ hr {
     color: v.$soft-black;
   }
 }
-
-
-//** Cart Empty **//
-.empty {
-  width: 70%;
-  text-align: center;
-  color: v.$violeta;
-
-  p {
-    color: v.$soft-black;
-  }
-
-  img {
-    margin-top: 10rem;
-    width: 50%;
-  }
-}
-
-.empty__title {
-  font-weight: 400;
-}
