@@ -7,6 +7,7 @@ import Slider from './components/Slider/Slider';
 import {CartContext} from './context/CartContext';
 import CategoryContainer from './components/CategoryContainer/CategoryContainer';
 import Cart from './components/Cart/Cart';
+import ContactForm from './components/ContactForm/ContactForm';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
           <Route path='/detail/:productId' element={<ItemDetailContainer/>}/>
           <Route path='/cart' element={<Cart/>}/>
+          <Route path='/order' element={<ContactForm/>}/>
         </Routes>
       </BrowserRouter>
     </CartContext>

@@ -5,9 +5,9 @@ import {FaRegTrashAlt} from 'react-icons/fa'
 import {Link} from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount';
 
+
 function Cart() {
     const {cart, getQuantity, getTotal, removeItem, clear} = useContext(Context);
-    
 
     if(!cart.length){
         return(
@@ -50,17 +50,16 @@ function Cart() {
                 </div>
 
                 <hr/>
-                        <div className='cart__checkout'> 
-                            <div className='cart__total'>
-                                <div>
-                                    <div className='cart__total--subtotal'>Sub-Total</div>
-                                    <div className='cart__total--items'>{`${getQuantity()} items`}</div>
-                                </div>
-                                <div className='cart__total--amount'>{`$${getTotal()}`}</div>
+                    <div className='cart__checkout'> 
+                        <div className='cart__total'>
+                            <div>
+                                <div className='cart__total--subtotal'>Sub-Total</div>
+                                <div className='cart__total--items'>{`${getQuantity()} items`}</div>
                             </div>
-                                <button className='boton boton--primario'>Ir a pagar</button>  
-                        </div> 
-            
+                            <div className='cart__total--amount'>{`$${getTotal()}`}</div>
+                        </div>
+                        <Link to={'/order'}><button className='boton boton--primario'>Comprar</button></Link>  
+                    </div> 
             </div>
         </div>
     )
