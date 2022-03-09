@@ -3,9 +3,9 @@
 
 #form {
     background: v.$grisaseo;
-  justify-content: center;
-  align-items: center;
-  margin: 2rem auto;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 10rem;
 }
 
 .form {
@@ -17,6 +17,10 @@
         font-size: 3rem;
         font-family: v.$principalFont;
         font-weight: 700;
+    }
+
+    h2 {
+        font-weight: 400;
     }
 }
 
@@ -36,6 +40,10 @@
         font-weight: bold;
         text-transform: uppercase;
         display: block;
+    }
+
+    fieldset {
+        margin-bottom: 2rem;
     }
 
     input:not([type="submit"]),

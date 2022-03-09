@@ -8,8 +8,6 @@ import { getDocs, collection} from 'firebase/firestore';
 import { db } from '../../services/firebase/firebase';
 
 const NavBar = ({brandName}) => {
-    
-
     return (
             <header>
                 <div className="container nav">
@@ -29,7 +27,7 @@ const NavBar = ({brandName}) => {
 
 export default NavBar;
 
-function NavCat() {
+export function NavCat() {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {

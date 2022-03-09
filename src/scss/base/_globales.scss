@@ -38,7 +38,10 @@ p {
 
 a {
     font-family: v.$principalFont;
-    text-decoration: none;
+    text-decoration: inherit;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
 }
 
 del {

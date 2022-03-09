@@ -1,4 +1,4 @@
-import {createContext} from 'react'
+import {createContext, useContext} from 'react'
 import useLocalStorage from '../customHooks/useLocalStorage';
 
 const Context = createContext();
@@ -81,4 +81,6 @@ export function CartContext({children}) {
   )
 }
 
-export default Context
+export const useCartContext = () => {
+    return useContext(Context)
+}

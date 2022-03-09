@@ -1,0 +1,73 @@
+@use '../../scss/base/globales';
+@use '../../scss/base/variables' as v;
+
+#footer{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    background: v.$soft-black;
+    display: flex;
+    height: 230px;
+    margin-top: 8rem;
+}
+
+.footer__columns {
+    margin: auto;
+    width: 85%;
+    position: relative;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 5.5rem;
+    font-size: 1.5rem;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3%;
+}
+
+.footer__column{
+    width: 20%;
+    margin-right: 1.5%;
+    position: relative;
+    float: left;
+
+    &:nth-child(1){
+        right: 4%;
+    }
+
+    &:nth-child(2) {
+        left: 2%;
+    }
+
+    &:nth-child(3) {
+        right: 1%;
+    }
+
+    &:nth-child(4) {
+        right: 6%;
+    }
+
+    &--heading {
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        text-align: left;
+        font-size: 1.6rem;
+        margin-top: 1.2rem;
+    }
+
+    &--img {
+        width: 60%;
+        float: left;
+    }
+
+    &--sites {
+        text-align: left;
+    }
+
+    &--sites {
+        a:hover {
+            text-decoration: underline;
+            color: v.$fucsia;
+        } 
+    }
+}

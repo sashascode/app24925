@@ -1,6 +1,5 @@
 import './Cart.scss'
-import {useContext} from 'react'
-import Context from '../../context/CartContext';
+import {useCartContext} from '../../context/CartContext';
 import {FaRegTrashAlt} from 'react-icons/fa'
 import {Link} from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount';
@@ -8,7 +7,7 @@ import CartEmpty from '../CartEmpty/CartEmpty';
 
 
 function Cart() {
-    const {cart, getQuantity, getTotal, removeItem, clear} = useContext(Context);
+    const {cart, getQuantity, getTotal, removeItem, clear} = useCartContext();
 
     if(!cart.length){
        return <CartEmpty/>

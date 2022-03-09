@@ -1,17 +1,20 @@
 import {writeBatch, getDoc, doc, addDoc, collection, Timestamp} from 'firebase/firestore';
 import {db} from '../../services/firebase/firebase';
-import {useState, useContext} from 'react'
-import Context from '../../context/CartContext';
+import {useState} from 'react'
+import {useCartContext} from '../../context/CartContext';
 import './ContactForm.scss';
 import CartEmpty from '../CartEmpty/CartEmpty';
+import { useNotificationContext } from '../../services/Notification/Notification';
 
 function ContactForm() {
-    const {cart, getTotal, clear} = useContext(Context);
+    const {setNotification} = useNotificationContext();
+    const {cart, getTotal, clear} = useCartContext();
     // const [processingOrder, setProcessingOrder] = useState(false);
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const [address, setAddress] = useState('');
     const [name, setName] = useState('');
+    const [zip, setZip] = useState('');
    
     const handleContactForm = (e) => {
         // setProcessingOrder(true);
@@ -23,7 +26,8 @@ function ContactForm() {
                 name: name,
                 phone: phone,
                 email: email,
-                address: address
+                address: address,
+                zip: zip
                 },
                 items: cart,
                 total: getTotal(),
@@ -49,16 +53,18 @@ function ContactForm() {
         //* Si hay stock, agregar nueva orden *//
             if(outOfStock.length === 0){
                 addDoc(collection(db, 'orders'), objOrder).then(({id}) => {
-                    batch.commit().then(() => console.log(`El id de su orden es ${id}`));
+                    batch.commit().then(() => setNotification('success',`El id de su orden es ${id}`));
                 }).finally(() => {
                     // setProcessingOrder(false);
                     clear();
                 })
             } else {
                 outOfStock.items.forEach(i => {
-                    console.log(`El producto ${i.name} se encuentra agotado`);
+                    setNotification('error',`El producto ${i.name} se encuentra agotado`);
                 })
             }
+        } else {
+            setNotification('error', 'Todos los campos son obligatorios');
         }
     }
 
@@ -86,6 +92,9 @@ function ContactForm() {
 
                     <label htmlFor="direccion">Direccion</label>
                     <input type="tel" placeholder="Tu Direccion" id="direccion" onChange={({target}) => setAddress(target.value)}/>
+
+                    <label htmlFor="zip">Codigo Postal</label>
+                    <input type="num" placeholder="Tu Codigo Postal" id="zip" onChange={({target}) => setZip(target.value)}/>
                 </fieldset>
 
                 <input className="boton boton--primario" type="submit" value="Enviar"></input>
