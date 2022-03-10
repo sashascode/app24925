@@ -11,8 +11,6 @@ function Footer() {
                 <NavCat/>
             </div>
         
-
-    
             <div className='footer__column'>
                 <h2 className='footer__column--heading'>Politicas</h2>
                 <div className='footer__column--sites'>
@@ -21,8 +19,6 @@ function Footer() {
                 </div>
             </div>
         
-
-        
             <div className='footer__column'>
                 <h2 className='footer__column--heading'>Servicios al cliente</h2>
                 <div className='footer__column--sites'>
@@ -30,8 +26,6 @@ function Footer() {
                     <Link to='/contactanos'><p>Contactanos</p></Link>
                 </div>
             </div>
-        
-
         
             <div className='footer__column'>
                 <h2 className='footer__column--heading'>Metodos de pago</h2>

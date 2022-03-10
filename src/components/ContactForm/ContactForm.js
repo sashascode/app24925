@@ -18,7 +18,6 @@ function ContactForm() {
    
     const handleContactForm = (e) => {
         // setProcessingOrder(true);
-        //* Obtener datos de contacto e items *//
         e.preventDefault();
         if(name !== '' && address !== '' && email !== '' && phone !== ''){
             const objOrder = {
@@ -34,9 +33,23 @@ function ContactForm() {
                 date: Timestamp.fromDate(new Date())
             };
 
-        //* Validar que haya stock *//
             const batch = writeBatch(db);
             const outOfStock = [];
+
+            const executeOrder = () => {
+                if(outOfStock.length === 0){
+                    addDoc(collection(db, 'orders'), objOrder).then(({id}) => {
+                        batch.commit().then(() => setNotification('success',`El id de su orden es ${id}`));
+                    }).finally(() => {
+                        // setProcessingOrder(false);
+                        clear();
+                    })
+                } else {
+                    outOfStock.items.forEach(i => {
+                        setNotification('error',`El producto ${i.name} se encuentra agotado`);
+                    })
+                }
+            }
 
             objOrder.items.forEach((i) => {
                 getDoc(doc(db, 'products', i.id)).then(response => {
@@ -47,22 +60,9 @@ function ContactForm() {
                     } else {
                         outOfStock.push({id: response.id, ...response});
                     }
-                })
+                }).catch(err => console.log(err)).then(() => executeOrder());
             })
         
-        //* Si hay stock, agregar nueva orden *//
-            if(outOfStock.length === 0){
-                addDoc(collection(db, 'orders'), objOrder).then(({id}) => {
-                    batch.commit().then(() => setNotification('success',`El id de su orden es ${id}`));
-                }).finally(() => {
-                    // setProcessingOrder(false);
-                    clear();
-                })
-            } else {
-                outOfStock.items.forEach(i => {
-                    setNotification('error',`El producto ${i.name} se encuentra agotado`);
-                })
-            }
         } else {
             setNotification('error', 'Todos los campos son obligatorios');
         }

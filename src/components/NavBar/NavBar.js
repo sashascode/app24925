@@ -4,26 +4,25 @@ import { SiApple } from 'react-icons/si';
 import { useState, useEffect } from 'react';
 import { RiUserLine, RiSearchLine } from 'react-icons/ri';
 import CartWidget from '../CartWidget/CartWidget.js';
-import { getDocs, collection} from 'firebase/firestore';
-import { db } from '../../services/firebase/firebase';
+import { getCategories } from '../../services/firebase/firebase';
 
 const NavBar = ({brandName}) => {
     return (
-            <header>
-                <div className="container nav">
-                    <div className="nav__bar">
-                        <NavLink to="/" className="nav__bar--brand">
-                            <h1 className="nav__bar--brand--name no-margin centrar-texto">
-                                <span className='"nav__bar--brand--icon'><SiApple/></span><span className="bold">{brandName}</span>
-                            </h1>    
-                        </NavLink>
-                        <NavCat/>
-                        <NavIcons/> 
-                    </div>
+        <header>
+            <div className="container nav">
+                <div className="nav__bar">
+                    <NavLink to="/" className="nav__bar--brand">
+                        <h1 className="nav__bar--brand--name no-margin centrar-texto">
+                            <span className='"nav__bar--brand--icon'><SiApple/></span><span className="bold">{brandName}</span>
+                        </h1>    
+                    </NavLink>
+                    <NavCat/>
+                    <NavIcons/> 
                 </div>
-            </header>
+            </div>
+        </header>
     )
-  }
+}
 
 export default NavBar;
 
@@ -31,15 +30,10 @@ export function NavCat() {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        const collectionRef = collection(db, 'categories');
-        getDocs(collectionRef).then(querySnapshot => {
-            const categories = querySnapshot.docs.map(cat => {
-                return {id: cat.id, ...cat.data()};
-            })
+        getCategories().then((categories) => {
             setCategories(categories);
-        })
+        });
     },[]);
-
 
   return (
     <nav className="nav__links stroke">

@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import CategoryList from '../CategoryList/CategoryList';
 import { Spinner } from '../Spinner/spinner.js';
+import { getCategories } from "../../services/firebase/firebase";
 import './CategoryContainer.scss';
-import { getDocs, collection} from 'firebase/firestore';
-import { db } from '../../services/firebase/firebase';
 
 function CategoryContainer() {
   const [categories, setCategories] = useState([]);
@@ -11,13 +10,13 @@ function CategoryContainer() {
 
   useEffect(() => {
     setSpinner(true);
-    const collectionRef = collection(db, 'categories');
-    getDocs(collectionRef).then(querySnapshot => {
-        const categories = querySnapshot.docs.map(cat => {
-            return {id: cat.id, ...cat.data()};
-        })
-        setCategories(categories);
+    getCategories().then((categories) => {
+      setCategories(categories);
     }).finally(() => setSpinner(false));
+
+    return (() => {
+      setCategories()
+    })
   },[]);
 
   if(spinner){

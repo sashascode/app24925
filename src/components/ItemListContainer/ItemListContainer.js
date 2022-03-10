@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react'
 import { Spinner } from '../Spinner/spinner.js'
 import { useParams } from "react-router-dom";
 import './_ItemListContainer.scss'
-import { getDocs, collection, query, where } from 'firebase/firestore' 
-import {db} from '../../services/firebase/firebase'
+import { getProducts } from '../../services/firebase/firebase.js';
+
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
@@ -14,17 +14,13 @@ const ItemListContainer = () => {
     useEffect(() => {
         setSpinner(true);
         
-        const collectionRef = categoryId ? //si hay categoryId
-                query(collection(db,'products'), where('category', '==', categoryId)) : //filtro
-                collection(db, 'products'); //sin filtrar
-
-        getDocs(collectionRef).then(querySnapshot => {
-            const products = querySnapshot.docs.map((doc) => {
-                return {id: doc.id, ...doc.data()};
-            })
+        getProducts(categoryId).then((products) => {
             setProducts(products);
         }).finally(() => setSpinner(false));
 
+        return (() => {
+            setProducts();
+        });
     },[categoryId]);
 
     return(

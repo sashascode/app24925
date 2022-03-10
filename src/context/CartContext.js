@@ -64,8 +64,6 @@ export function CartContext({children}) {
         }
     }
 
-    console.log(cart);
-
   return (
     <Context.Provider value={{
         cart,

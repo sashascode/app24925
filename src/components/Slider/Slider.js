@@ -1,9 +1,8 @@
-import {useEffect, useState} from 'react'
-import { getDocs, collection} from 'firebase/firestore';
-import { db } from '../../services/firebase/firebase';
-import {MdArrowForwardIos, MdArrowBackIos} from 'react-icons/md'
-import './Slider.scss'
-import {Spinner} from '../Spinner/spinner'
+import './Slider.scss';
+import {useEffect, useState} from 'react';
+import { getSliderData } from '../../services/firebase/firebase';
+import {MdArrowForwardIos, MdArrowBackIos} from 'react-icons/md';
+import {Spinner} from '../Spinner/spinner';
 
 function Slider() {
   const [images, setImages] = useState([]);
@@ -20,12 +19,14 @@ function Slider() {
   }
 
   useEffect(() => {
-    const collectionRef = collection(db, 'sliderData');
-    getDocs(collectionRef).then(querySnapshot => {
-      const images = querySnapshot.docs.map(i => {
-        return {id: i.id, ...i.data()};
-      });
+    
+    getSliderData().then((images) => {
       setImages(images);
+    })
+
+    return (() => {
+      setImages()
+      setCurrent()
     });
   }, []);
 

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { ItemDetail } from '../ItemDetail/ItemDetail.js';
 import { Spinner } from '../Spinner/spinner.js';
 import { useParams } from "react-router-dom";
-import { getDoc, doc } from 'firebase/firestore';
-import {db} from '../../services/firebase/firebase';
+import { getProductById } from "../../services/firebase/firebase.js";
+
 
 export const ItemDetailContainer = () => {
     const [product, setProduct] = useState({});
@@ -11,16 +11,16 @@ export const ItemDetailContainer = () => {
     const {productId} = useParams();
 
     useEffect(() => {
+
         setSpinner(true);
-        
-        const docRef = doc(db, 'products', productId);
-        getDoc(docRef).then(querySnapshot => {
-            const product = {id: querySnapshot.id, ...querySnapshot.data()};
+        getProductById(productId).then((product) => {
             setProduct(product);
         }).finally(setSpinner(false));
 
-    }, [productId])
-
+        return (() => {
+            setProduct()
+        });
+    }, [productId]);  
 
     return(
         <>
