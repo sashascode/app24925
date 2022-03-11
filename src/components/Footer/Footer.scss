@@ -3,12 +3,12 @@
 
 #footer{
     position: absolute;
+    bottom: 0;
     width: 100%;
     text-align: center;
     background: v.$soft-black;
     display: flex;
     height: 230px;
-    margin-top: 8rem;
 }
 
 .footer__columns {

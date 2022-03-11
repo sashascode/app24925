@@ -7,7 +7,7 @@ import CartEmpty from '../CartEmpty/CartEmpty';
 
 
 function Cart() {
-    const {cart, getQuantity, getTotal, removeItem, clear} = useCartContext();
+    const {cart, getQuantity, getTotal, removeItem, clearCart} = useCartContext();
 
     if(!cart.length){
        return <CartEmpty/>
@@ -18,7 +18,7 @@ function Cart() {
             <div className='cart'>
                 <header className='cart__header'>
                     <h1 className='cart__header--heading'>Carrito</h1>
-                    <h5 onClick={() => clear()} className='cart__header--action'>Eliminar todo</h5>
+                    <h5 onClick={() => clearCart()} className='cart__header--action'>Eliminar todo</h5>
                 </header>
         
                 <div className="cart__items">

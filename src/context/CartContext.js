@@ -15,11 +15,11 @@ export function CartContext({children}) {
 
         if(isInCart(productToAdd.id)){
             const newCart =
-                cart.map((p) => {
-                    if(p.id === productToAdd.id){
-                        p.count += newObj.count;
+                cart.map((product) => {
+                    if(product.id === productToAdd.id){
+                        product.count += newObj.count;
                     }
-                    return p;
+                    return product;
                 })
             setCart(newCart);
         } else { 
@@ -28,40 +28,31 @@ export function CartContext({children}) {
     }
 
     const removeItem = (id) => {
-        setCart(cart.filter((p) => p.id !== id));
+        setCart(cart.filter((product) => product.id !== id));
     }
 
-    const clear = () => {
+    const clearCart = () => {
         setCart([]);
     }
 
     const isInCart = (id) => {
-        return cart.some(p => p.id === id)
+        return cart.some(product => product.id === id)
     }
 
     const getQuantity = () => {
-        const countArray = cart.map(p => p.count);
-        
-        if(countArray.length){
-            return countArray.reduce((acc, count) => acc += count);
-        } else {
-            return 0;
-        }
+        let total = 0;
+        cart.forEach(product => {
+            total += product.count;
+        })
+        return total;
     }
 
     const getTotal = () => {
-        const countArray = cart.map(p => {
-            if(p.count > 1){
-                return p.price * p.count;
-            }
-            return p.price
+        let total = 0;
+        cart.forEach(product => {
+            total += product.price * product.count
         });
-        
-        if(countArray.length){
-            return countArray.reduce((acc, price) => acc += price);
-        } else {
-            return 0;
-        }
+        return total;
     }
 
   return (
@@ -69,7 +60,7 @@ export function CartContext({children}) {
         cart,
         addItem,
         removeItem,
-        clear,
+        clearCart,
         getQuantity,
         getTotal,
         setCart

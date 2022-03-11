@@ -8,8 +8,8 @@ import { useNotificationContext } from '../../services/Notification/Notification
 
 function ContactForm() {
     const {setNotification} = useNotificationContext();
-    const {cart, getTotal, clear} = useCartContext();
-    // const [processingOrder, setProcessingOrder] = useState(false);
+    const {cart, getTotal, clearCart, removeItem} = useCartContext();
+    const [processingOrder, setProcessingOrder] = useState(false);
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const [address, setAddress] = useState('');
@@ -17,9 +17,11 @@ function ContactForm() {
     const [zip, setZip] = useState('');
    
     const handleContactForm = (e) => {
-        // setProcessingOrder(true);
         e.preventDefault();
-        if(name !== '' && address !== '' && email !== '' && phone !== ''){
+        if(name !== '' && address !== '' && email !== '' && phone !== '' && zip !== ''){
+
+            setProcessingOrder(true);
+
             const objOrder = {
                 buyer: {
                 name: name,
@@ -41,36 +43,41 @@ function ContactForm() {
                     addDoc(collection(db, 'orders'), objOrder).then(({id}) => {
                         batch.commit().then(() => setNotification('success',`El id de su orden es ${id}`));
                     }).finally(() => {
-                        // setProcessingOrder(false);
-                        clear();
-                    })
+                        setProcessingOrder(false);
+                        clearCart();
+                    });
                 } else {
-                    outOfStock.items.forEach(i => {
-                        setNotification('error',`El producto ${i.name} se encuentra agotado`);
-                    })
-                }
-            }
+                    outOfStock.forEach(prod => {
+                        setNotification('error',`El producto ${prod.name} se encuentra agotado`);
+                        removeItem(prod.id);
+                    });
+                };
+            };
 
-            objOrder.items.forEach((i) => {
-                getDoc(doc(db, 'products', i.id)).then(response => {
-                    if(response.data().stock >= i.count){
+            objOrder.items.forEach((prod) => {
+                getDoc(doc(db, 'products', prod.id)).then(response => {
+                    if(response.data().stock >= prod.count){
                         batch.update(doc(db, 'products', response.id), {
-                            stock: response.data().stock - i.count
-                        })
+                            stock: response.data().stock - prod.count
+                        });
                     } else {
-                        outOfStock.push({id: response.id, ...response});
-                    }
-                }).catch(err => console.log(err)).then(() => executeOrder());
-            })
+                        outOfStock.push({id: response.id, ...response.data()});
+                    };
+                }).catch(err => console.log(err)).then(() => executeOrder()).finally(setProcessingOrder(false));
+            });
         
         } else {
             setNotification('error', 'Todos los campos son obligatorios');
-        }
+        };
+    };
+
+    if(processingOrder) {
+        return <h1>Se esta procesando su orden...</h1>
     }
 
     if(cart.length === 0){
         return <CartEmpty/>
-    }
+    };
 
     return(
         <div id='form'>

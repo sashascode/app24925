@@ -2,6 +2,7 @@ import { NavCat } from '../NavBar/NavBar'
 import './Footer.scss'
 import {Link} from 'react-router-dom'
 
+
 function Footer() {
   return (
     <footer id='footer'>
