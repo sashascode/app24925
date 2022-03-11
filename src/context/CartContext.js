@@ -55,6 +55,27 @@ export function CartContext({children}) {
         return total;
     }
 
+    const decrementAmount = (id) => {
+        const cartUpdated = cart.map(product => {
+            if(product.count > 1 && product.id === id){
+                product.count -= 1;
+            }
+            return product;
+        })
+        setCart(cartUpdated);
+    }
+
+    const incrementAmount = (id) => {
+        const cartUpdated = cart.map(product => {
+            if(product.count > 1 && product.id === id){
+                product.count += 1;
+            }
+            return product;
+        })
+        setCart(cartUpdated);
+    }
+
+
   return (
     <Context.Provider value={{
         cart,
@@ -63,7 +84,9 @@ export function CartContext({children}) {
         clearCart,
         getQuantity,
         getTotal,
-        setCart
+        setCart,
+        decrementAmount,
+        incrementAmount
     }}>
         {children}
     </Context.Provider>

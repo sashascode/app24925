@@ -22,20 +22,20 @@ function Cart() {
                 </header>
         
                 <div className="cart__items">
-                    {cart.map((i) => {
+                    {cart.map((product) => {
                         return(
-                            <div key={i.id} className='cart__item'>
+                            <div key={product.id} className='cart__item'>
                                 <div className='cart__item--img'>
-                                    <img src={i.img} alt={i.name} className='cart__item--image'/>
+                                    <img src={product.img} alt={product.name} className='cart__item--image'/>
                                 </div>
                                 <div className='cart__item--about'>
-                                    <h1 className="cart__item--name" style={{fontSize: 25}}>{i.name}</h1>
-                                    <h3 className='cart__item--detail'>{i.detail}</h3>
+                                    <h1 className="cart__item--name" style={{fontSize: 25}}>{product.name}</h1>
+                                    <h3 className='cart__item--detail'>{product.detail}</h3>
                                 </div>
-                                <div className='cart__item--counter'><ItemCount cart={true} stock={i.stock} initial={i.count}/> </div>
+                                <div className='cart__item--counter'><ItemCount cart={true} stock={product.stock} initial={product.count} productId={product.id}/> </div>
                                 <div className='cart__item--prices'>
-                                    <div className='cart__item--amount'>{`$${i.price}`}</div>
-                                    <div className='cart__item--trash'><span onClick={() => removeItem(i.id)}><FaRegTrashAlt/></span></div>
+                                    <div className='cart__item--amount'>{`$${product.price}`}</div>
+                                    <div className='cart__item--trash'><span onClick={() => removeItem(product.id)}><FaRegTrashAlt/></span></div>
                                 </div>   
                             </div>
                         )}
