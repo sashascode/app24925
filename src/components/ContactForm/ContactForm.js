@@ -38,13 +38,14 @@ function ContactForm() {
             const outOfStock = [];
 
             const executeOrder = () => {
+                setProcessingOrder(true);
                 if(outOfStock.length === 0){
                     addDoc(collection(db, 'orders'), objOrder).then(({id}) => {
                         batch.commit().then(() => {
                             setNotification('success',`Bien! La orden se genero exitosamente`);
+                            setProcessingOrder(false);
                         });
                     }).finally(() => {
-                        setProcessingOrder(false);
                         clearCart();
                     });
                 } else {
@@ -103,7 +104,7 @@ function ContactForm() {
                 <label htmlFor="zip">Codigo Postal <span style={{color: 'red'}}>*</span></label>
                 <input type="tel" placeholder="Tu Codigo Postal" id="zip" name='zip' onChange={({target}) => setZip(target.value)}/>
 
-                <input className="boton boton--primario" type="submit" value="Enviar"></input>
+                <input className="boton boton--primario" type="submit" value={setProcessingOrder ? "Procesando compra...":"Enviar"}></input>
             </form>   
             </div>
         </div>            

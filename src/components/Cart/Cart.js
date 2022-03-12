@@ -1,7 +1,7 @@
-import './Cart.scss'
-import {useCartContext} from '../../context/CartContext';
-import {FaRegTrashAlt} from 'react-icons/fa'
-import {Link} from 'react-router-dom'
+import './Cart.scss';
+import { useCartContext } from '../../context/CartContext';
+import { FaRegTrashAlt } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount';
 import CartEmpty from '../CartEmpty/CartEmpty';
 
@@ -51,7 +51,7 @@ function Cart() {
                             </div>
                             <div className='cart__total--amount'>{`$${getTotal()}`}</div>
                         </div>
-                        <Link to={'/order'}><button className='boton boton--primario'>Comprar</button></Link>  
+                        <Link to={'/order'}><button className='boton boton--primario'>Checkout</button></Link>  
                     </div> 
             </div>
         </div>

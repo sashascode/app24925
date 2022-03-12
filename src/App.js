@@ -1,14 +1,14 @@
 import './App.css';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CartContext } from './context/CartContext';
+import { NotificationProvider } from './services/Notification/Notification';
 import NavBar from './components/NavBar/NavBar';
+import Slider from './components/Slider/Slider';
+import CategoryContainer from './components/CategoryContainer/CategoryContainer';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
-import Slider from './components/Slider/Slider';
-import {CartContext} from './context/CartContext';
-import CategoryContainer from './components/CategoryContainer/CategoryContainer';
 import Cart from './components/Cart/Cart';
 import ContactForm from './components/ContactForm/ContactForm';
-import { NotificationProvider } from './services/Notification/Notification';
 import Footer from './components/Footer/Footer';
 
 function App() {
