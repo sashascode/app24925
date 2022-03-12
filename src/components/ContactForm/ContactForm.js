@@ -1,10 +1,11 @@
+import './ContactForm.scss';
 import {writeBatch, getDoc, doc, addDoc, collection, Timestamp} from 'firebase/firestore';
 import {db} from '../../services/firebase/firebase';
 import {useState} from 'react'
 import {useCartContext} from '../../context/CartContext';
-import './ContactForm.scss';
-import CartEmpty from '../CartEmpty/CartEmpty';
 import { useNotificationContext } from '../../services/Notification/Notification';
+import {Spinner} from '../Spinner/spinner';
+import CartEmpty from '../CartEmpty/CartEmpty';
 
 function ContactForm() {
     const {setNotification} = useNotificationContext();
@@ -19,9 +20,7 @@ function ContactForm() {
     const handleContactForm = (e) => {
         e.preventDefault();
         if(name !== '' && address !== '' && email !== '' && phone !== '' && zip !== ''){
-
             setProcessingOrder(true);
-
             const objOrder = {
                 buyer: {
                 name: name,
@@ -41,7 +40,9 @@ function ContactForm() {
             const executeOrder = () => {
                 if(outOfStock.length === 0){
                     addDoc(collection(db, 'orders'), objOrder).then(({id}) => {
-                        batch.commit().then(() => setNotification('success',`El id de su orden es ${id}`));
+                        batch.commit().then(() => {
+                            setNotification('success',`Bien! La orden se genero exitosamente`);
+                        });
                     }).finally(() => {
                         setProcessingOrder(false);
                         clearCart();
@@ -67,42 +68,40 @@ function ContactForm() {
             });
         
         } else {
-            setNotification('error', 'Todos los campos son obligatorios');
+            setNotification('error', 'Todos los campos son obligatorios!');
         };
     };
 
     if(processingOrder) {
-        return <h1>Se esta procesando su orden...</h1>
+        return <Spinner/>;
     }
 
     if(cart.length === 0){
-        return <CartEmpty/>
+        return(
+            <CartEmpty/>
+        ) 
     };
 
     return(
         <div id='form'>
-            <div className='form container'>
+            <div className='form'>
             <h1>Compra Rápida</h1>
             <h2>Completa los siguientes campos para realizar tu pedido.</h2>
             <form className="form__content" onSubmit={(e) => handleContactForm(e)}>
-                <fieldset>
-                    <legend>Información Personal</legend>
-
-                    <label htmlFor="nombre">Nombre</label>
-                    <input type="text" placeholder="Tu Nombre" id="nombre" onChange={({target}) => setName(target.value)}/>
+                <label htmlFor="name">Nombre <span style={{color: 'red'}}>*</span></label>
+                <input type="text" placeholder="Tu Nombre" id="name" name='name' onChange={({target}) => setName(target.value)}/>
                     
-                    <label htmlFor="email">E-mail</label>
-                    <input type="email" placeholder="Tu Email" id="email" onChange={({target}) => setEmail(target.value)}/>
+                <label htmlFor="email">E-mail <span style={{color: 'red'}}>*</span></label>
+                <input type="email" placeholder="Tu Email" id="email" name='email' onChange={({target}) => setEmail(target.value)}/>
 
-                    <label htmlFor="telefono">Teléfono</label>
-                    <input type="tel" placeholder="Tu Teléfono" id="telefono" onChange={({target}) => setPhone(target.value)}/>
+                <label htmlFor="phone">Teléfono <span style={{color: 'red'}}>*</span></label>
+                <input type="tel" placeholder="Tu Teléfono" id="phone" name='phone' onChange={({target}) => setPhone(target.value)}/>
 
-                    <label htmlFor="direccion">Direccion</label>
-                    <input type="tel" placeholder="Tu Direccion" id="direccion" onChange={({target}) => setAddress(target.value)}/>
+                <label htmlFor="address">Direccion <span style={{color: 'red'}}>*</span></label>
+                <input type="text" placeholder="Tu Direccion" id="address" name='address' onChange={({target}) => setAddress(target.value)}/>
 
-                    <label htmlFor="zip">Codigo Postal</label>
-                    <input type="num" placeholder="Tu Codigo Postal" id="zip" onChange={({target}) => setZip(target.value)}/>
-                </fieldset>
+                <label htmlFor="zip">Codigo Postal <span style={{color: 'red'}}>*</span></label>
+                <input type="tel" placeholder="Tu Codigo Postal" id="zip" name='zip' onChange={({target}) => setZip(target.value)}/>
 
                 <input className="boton boton--primario" type="submit" value="Enviar"></input>
             </form>   

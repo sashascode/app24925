@@ -3,13 +3,12 @@
 
 #form {
     background: v.$grisaseo;
-    justify-content: center;
-    align-items: center;
     margin: 10rem;
+    width: 50%;
+    margin-left: 48rem;
 }
 
 .form {
-    width: 70%;
     padding: 2rem;
     background-color: v.$blanco;
 
@@ -31,19 +30,10 @@
         margin: 2rem 0 0 0;
     }
 
-    legend {
-        font-size: 2rem;
-        color: v.$soft-black;
-    }
-
     label {
         font-weight: bold;
         text-transform: uppercase;
         display: block;
-    }
-
-    fieldset {
-        margin-bottom: 2rem;
     }
 
     input:not([type="submit"]),
@@ -57,3 +47,4 @@
         margin-bottom: 2rem;
     }
 }
+

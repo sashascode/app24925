@@ -1,11 +1,16 @@
-import {createContext, useContext} from 'react'
+import {useState,createContext, useContext, useEffect} from 'react'
 import useLocalStorage from '../customHooks/useLocalStorage';
 
 const Context = createContext();
 
 export function CartContext({children}) {
-    const [cart, setCart] = useLocalStorage('cartStorage', []);
+    const [inLocalStorage, setLocalStorage] = useLocalStorage();
+    const [cart, setCart] = useState(inLocalStorage('cart') || []);
 
+    useEffect(() => {
+        setLocalStorage('cart',cart);
+    },[cart, setLocalStorage]);
+    
     const addItem = (productToAdd, count) => {
 
         const newObj = {
@@ -57,7 +62,7 @@ export function CartContext({children}) {
 
     const decrementAmount = (id) => {
         const cartUpdated = cart.map(product => {
-            if(product.count > 1 && product.id === id){
+            if(product.id === id){
                 product.count -= 1;
             }
             return product;
@@ -67,7 +72,7 @@ export function CartContext({children}) {
 
     const incrementAmount = (id) => {
         const cartUpdated = cart.map(product => {
-            if(product.count > 1 && product.id === id){
+            if(product.id === id){
                 product.count += 1;
             }
             return product;

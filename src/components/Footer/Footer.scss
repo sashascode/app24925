@@ -12,7 +12,6 @@
 }
 
 .footer__columns {
-    margin: auto;
     width: 85%;
     position: relative;
     height: auto;
@@ -22,10 +21,10 @@
     color: white;
     display: flex;
     justify-content: flex-end;
-    margin-top: 3%;
 }
 
 .footer__column{
+    margin-top: 4rem;
     width: 20%;
     margin-right: 1.5%;
     position: relative;
