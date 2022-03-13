@@ -4,8 +4,8 @@ import {db} from '../../services/firebase/firebase';
 import {useState} from 'react'
 import {useCartContext} from '../../context/CartContext';
 import { useNotificationContext } from '../../services/Notification/Notification';
-import {Spinner} from '../Spinner/spinner';
 import CartEmpty from '../CartEmpty/CartEmpty';
+import OrderId from '../OrderId/OrderId';
 
 function ContactForm() {
     const {setNotification} = useNotificationContext();
@@ -16,11 +16,11 @@ function ContactForm() {
     const [address, setAddress] = useState('');
     const [name, setName] = useState('');
     const [zip, setZip] = useState('');
+    const [orderId, setOrderId] = useState('');
    
     const handleContactForm = (e) => {
         e.preventDefault();
         if(name !== '' && address !== '' && email !== '' && phone !== '' && zip !== ''){
-            setProcessingOrder(true);
             const objOrder = {
                 buyer: {
                 name: name,
@@ -42,15 +42,16 @@ function ContactForm() {
                 if(outOfStock.length === 0){
                     addDoc(collection(db, 'orders'), objOrder).then(({id}) => {
                         batch.commit().then(() => {
+                            setOrderId(id);
                             setNotification('success',`Bien! La orden se genero exitosamente`);
-                            setProcessingOrder(false);
                         });
                     }).finally(() => {
                         clearCart();
+                        setProcessingOrder(false)
                     });
                 } else {
                     outOfStock.forEach(prod => {
-                        setNotification('error',`El producto ${prod.name} se encuentra agotado`);
+                        setNotification('error',`El producto ${prod.name} se encuentra agotado :(`);
                         removeItem(prod.id);
                     });
                 };
@@ -73,8 +74,10 @@ function ContactForm() {
         };
     };
 
-    if(processingOrder) {
-        return <Spinner/>;
+    if(orderId){
+        return(
+            <OrderId orderId={orderId}/>
+        )
     }
 
     if(cart.length === 0){
@@ -104,7 +107,7 @@ function ContactForm() {
                 <label htmlFor="zip">Codigo Postal <span style={{color: 'red'}}>*</span></label>
                 <input type="tel" placeholder="Tu Codigo Postal" id="zip" name='zip' onChange={({target}) => setZip(target.value)}/>
 
-                <input className="boton boton--primario" type="submit" value={setProcessingOrder ? "Procesando compra...":"Enviar"}></input>
+                <input className="boton boton--primario" type="submit" value={processingOrder ? "Procesando compra...":"Enviar"}></input>
             </form>   
             </div>
         </div>            
