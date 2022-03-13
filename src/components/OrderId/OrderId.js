@@ -7,12 +7,14 @@ function OrderId({orderId}) {
 
   return (
     <div className='centrar-texto card__detail'>
-        <h1>Compra finalizada!</h1>
-        <h3>El ID de tu orden es:</h3>
-        <p>{orderId}</p>
-        <CopyToClipboard text={orderId}>
-            <button className='boton boton--secundario' onClick={() => setNotification('success', 'Copiado al portapapeles!') }>Copiar</button>
-        </CopyToClipboard>
+        <div className='order-info'>
+            <h1>Compra finalizada</h1>
+            <h3>El ID de tu orden es:</h3>
+            <p>{orderId}</p>
+            <CopyToClipboard text={orderId}>
+                <button className='boton boton--secundario' onClick={() => setNotification('success', 'Copiado al portapapeles!') }>copiar id</button>
+            </CopyToClipboard>
+        </div>
     </div>
   )
 }
