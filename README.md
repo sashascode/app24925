@@ -23,13 +23,19 @@ Esta libreria permite agregarle una animacion de Fade In a cualquier elemento. E
 Siga las instrucciones para ver el sitio en localhost.
 
 1. Abrir una nueva terminal y clonar el repositorio con el siguiente comando:
+```
     git clone https://github.com/sxshita/app24925.git
+```
 
 2. Desde la terminal nos ubicamos en la carpeta raiz del proyecto e instalamos todas las dependencias con el comando:
+```
     npm install
+```
 
 3. Por ultimo corremos nuestro proyecto con el comando:
+```
     npm start
+```
 
 
 
