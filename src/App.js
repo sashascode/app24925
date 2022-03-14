@@ -10,31 +10,34 @@ import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetail
 import Cart from './components/Cart/Cart';
 import ContactForm from './components/ContactForm/ContactForm';
 import Footer from './components/Footer/Footer';
+import SearchContext from './context/SearchContext';
 
 function App() {
 
   return (
     <div className="App">
-    <NotificationProvider>  
-      <CartContext>
-        <BrowserRouter>
-          <NavBar brandName="iMarket" />
-          <Routes>
-            <Route path='/' element={
-              <>
-                <Slider/>
-                <CategoryContainer/> 
-                <ItemListContainer/>
-              </>
-            }/>
-            <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
-            <Route path='/detail/:productId' element={<ItemDetailContainer/>}/>
-            <Route path='/cart' element={<Cart/>}/>
-            <Route path='/order' element={<ContactForm/>}/>
-          </Routes>
-          <Footer/>
-        </BrowserRouter>
-      </CartContext>
+    <NotificationProvider>
+      <SearchContext>
+        <CartContext>
+          <BrowserRouter>
+            <NavBar brandName="iMarket" />
+            <Routes>
+              <Route path='/' element={
+                <>
+                  <Slider/>
+                  <CategoryContainer/> 
+                  <ItemListContainer/>
+                </>
+              }/>
+              <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
+              <Route path='/detail/:productId' element={<ItemDetailContainer/>}/>
+              <Route path='/cart' element={<Cart/>}/>
+              <Route path='/order' element={<ContactForm/>}/>
+            </Routes>
+            <Footer/>
+          </BrowserRouter>
+        </CartContext>
+      </SearchContext>  
     </NotificationProvider>  
     </div>
   );

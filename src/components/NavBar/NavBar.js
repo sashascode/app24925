@@ -53,7 +53,7 @@ export function NavCategories() {
 function NavIcons() {
     const [active, setActive] = useState(false);
     const [search, setSearch] = useState('');
-    const searchItem = useSearchContext();
+    const { searchItem } = useSearchContext();
 
   return (
     <div className='nav__icons'>

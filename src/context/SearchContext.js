@@ -1,4 +1,4 @@
-import {useState,createContext, useContext, useEffect} from 'react'
+import { useState,createContext, useContext } from 'react'
 import { getProducts } from '../services/firebase/firebase';
 
 const Context = createContext();
@@ -7,22 +7,22 @@ function SearchContext({children}) {
     const [products, setProducts] = useState([]);
     const [productsFinded, setProductsFinded] = useState([]);
 
-    useEffect(() => {
+    function searchItem(search) {
         getProducts().then(products => {
             setProducts(products);
-        })
-    }, []);
 
-    function searchItem(search) {
-        const searchWords = search.split(' ');
-        
-        products.forEach(product => {
-            searchWords.forEach(word => {
-                if(product.name.toLowerCase().split(' ').includes(word.toLowerCase())){
-                    setProductsFinded([...productsFinded, product.id]);
-                };
-            });   
+            products.forEach(product => {
+                searchWords.forEach(word => {
+                    if(product.name.toLowerCase().split(' ').includes(word.toLowerCase())){
+                        setProductsFinded([...productsFinded, product]);
+                    };
+                });   
+            });
         });
+
+        const searchWords = search.split(' ');
+
+        console.log(search);
 
         console.log(productsFinded);
     };
