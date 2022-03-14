@@ -1,4 +1,5 @@
 import './App.css';
+import GlobalProvider from './context/GlobalProvider';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from './components/NavBar/NavBar';
 import Slider from './components/Slider/Slider';
@@ -8,7 +9,6 @@ import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetail
 import Cart from './components/Cart/Cart';
 import ContactForm from './components/ContactForm/ContactForm';
 import Footer from './components/Footer/Footer';
-import GlobalProvider from './context/GlobalProvider';
 
 function App() {
 
