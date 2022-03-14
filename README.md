@@ -14,7 +14,7 @@ Utilizo esta libreria para crear rutas que rendericen diferentes componentes. Fa
 Todos los iconos de la aplicacion son componentes importados de esta libreria.
 
 * [react-copy-to-clipboard](https://www.npmjs.com/package/react-copy-to-clipboard)
-Esta libreria provee a la aplicacion un componente que recibe una cadena de texto como properitie a la que vamos a poder copiar al portapapeles haciendo click a su elemento hijo. La utilizo para que el usuario pueda copiar el ID de su orden con facilidad.
+Esta libreria provee a la aplicacion un componente que recibe una cadena de texto como prop que el usuario va a poder copiar al portapapeles con mayor facilidad.
 
 * [react-fade-in](https://www.npmjs.com/package/react-fade-in)
 Esta libreria permite agregarle una animacion de Fade In a cualquier elemento. Es utilizada para una mejor experiencia de usuario.
