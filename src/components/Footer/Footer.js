@@ -1,4 +1,4 @@
-import { NavCat } from '../NavBar/NavBar'
+import { NavCategories } from '../NavBar/NavBar'
 import './Footer.scss'
 import {Link} from 'react-router-dom'
 
@@ -9,7 +9,7 @@ function Footer() {
         <div className='footer__columns container'>
             <div className='footer__column'>
                 <h2 className='footer__column--heading'>Tienda</h2>
-                <NavCat/>
+                <NavCategories/>
             </div>
         
             <div className='footer__column'>

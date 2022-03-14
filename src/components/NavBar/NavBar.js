@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { RiUserLine, RiSearchLine } from 'react-icons/ri';
 import CartWidget from '../CartWidget/CartWidget.js';
 import { getCategories } from '../../services/firebase/firebase';
+import { useSearchContext } from '../../context/SearchContext';
 
 const NavBar = ({brandName}) => {
     return (
@@ -16,7 +17,7 @@ const NavBar = ({brandName}) => {
                             <span className='"nav__bar--brand--icon'><SiApple/></span><span className="bold">{brandName}</span>
                         </h1>    
                     </NavLink>
-                    <NavCat/>
+                    <NavCategories/>
                     <NavIcons/> 
                 </div>
             </div>
@@ -26,7 +27,7 @@ const NavBar = ({brandName}) => {
 
 export default NavBar;
 
-export function NavCat() {
+export function NavCategories() {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
@@ -50,9 +51,19 @@ export function NavCat() {
 }
 
 function NavIcons() {
+    const [active, setActive] = useState(false);
+    const [search, setSearch] = useState('');
+    const searchItem = useSearchContext();
+
   return (
     <div className='nav__icons'>
-        <RiSearchLine className='nav__icons--icon'/>
+        <RiSearchLine className='nav__icons--icon' onClick={() => setActive(true)}/>
+        {active && 
+            <>
+                <input type='text' placeholder='Buscar' onChange={({target}) => setSearch(target.value)}/>
+                <button onClick={() => searchItem(search)}>Buscar</button>
+            </>
+        }
         <RiUserLine className='nav__icons--icon'/>
         <CartWidget/>
     </div>

@@ -7,27 +7,10 @@ $soft-black: #252422;;
 $azul: #3a86ff;
 $fucsia: #ff006e;
 $violeta: #8338ec;
-$verde: #a4d17b;
+$verde: #a3dd6d;
 $rojo: #da0407;
 
 //Fonts
 $principalFont: 'SF UI Display', sans-serif;
 
-@font-face {
-    font-family: 'SF UI Display';
-    src: local('../../font/SF-UI-Display-Medium.otf');
-    font-weight: 500;
-}
-
-@font-face {
-    font-family: 'SF UI Display';
-    src: local('../../font/SF-UI-Display-Regular.otf');
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: 'SF UI Display';
-    src: local('../../font/SF-UI-Display-Semibold.otf');
-    font-weight: 600;
-}
 

@@ -99,5 +99,5 @@ export function CartContext({children}) {
 }
 
 export const useCartContext = () => {
-    return useContext(Context)
+    return useContext(Context);
 }

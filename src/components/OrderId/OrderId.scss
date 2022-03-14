@@ -1,5 +1,9 @@
 @use '../../scss/base/globales';
 @use '../../scss/base/variables' as v;
+ 
+.order__info {
+    margin-top: 10rem;   
+}
 
 .gradient-border {
     border: 2px solid;

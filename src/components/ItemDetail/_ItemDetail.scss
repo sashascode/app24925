@@ -3,6 +3,7 @@
 @use '../../scss/base/mixins' as m;
 
 .card__detail {
+    position: relative;
     margin: 10rem auto;
     background: v.$blanco;
     padding: 2rem;
