@@ -1,87 +1,36 @@
-# Getting Started with Create React App
+# E-Commerce - iMarket
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Tienda de productos de Apple con una interfaz sencilla y moderna.
 
-## Available Scripts
+## Dependencias descargadas
 
-In the project directory, you can run:
+* [Firebase](https://firebase.google.com)
+Utilizo el servicio de **Firebase** para almacenar y sincronizar en la base de datos **Firestore**, los datos de los productos y ordenes de compra de la aplicacion.
 
-### `npm start`
+* [React Router](https://reactrouter.com/docs/en/v6)
+Utilizo esta libreria para crear rutas que rendericen diferentes componentes. Facilita la navegabilidad y le concede un enrutamiento dinamico a la aplicacion.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* [React Icons](https://react-icons.github.io/react-icons/)
+Todos los iconos de la aplicacion son componentes importados de esta libreria.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* [react-copy-to-clipboard](https://www.npmjs.com/package/react-copy-to-clipboard)
+Esta libreria provee a la aplicacion un componente que recibe una cadena de texto como properitie a la que vamos a poder copiar al portapapeles haciendo click a su elemento hijo. La utilizo para que el usuario pueda copiar el ID de su orden con facilidad.
 
-### `npm test`
+* [react-fade-in](https://www.npmjs.com/package/react-fade-in)
+Esta libreria permite agregarle una animacion de Fade In a cualquier elemento. Es utilizada para una mejor experiencia de usuario.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Ejecutar el sitio en local
+Siga las instrucciones para ver el sitio en localhost.
 
-### `npm run build`
+1. Abrir una nueva terminal y clonar el repositorio con el siguiente comando:
+    git clone https://github.com/sxshita/app24925.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Desde la terminal nos ubicamos en la carpeta raiz del proyecto e instalamos todas las dependencias con el comando:
+    npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. Por ultimo corremos nuestro proyecto con el comando:
+    npm start
 
 
 
-# Proyecto E-commerce 'iStore'
 
-E-commerce de productos de Apple con una interfaz moderna y sencilla.
-
-## Dependecias Extras:
-
-Personalmente inclui las dependecias de npm react-icons y react-fade-in.
-
-Utilice react-icons ya que tiene una galeria con todos los iconos que preciso para este proyecto (marca de apple, carrito, medalla, flecha de return, entre otros).
-Utilice react-fade-in ya que necesitaba la animacion fade-in en mi boton de "Ver Mas" para que, al hacer hover en la card del producto, aparezca el boton sutilmente para una mejor experiencia de usuario.
-
-# Demo
-
-![Alt Text](istoredemoog.gif)
