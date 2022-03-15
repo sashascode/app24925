@@ -2,7 +2,7 @@ import './_NavBar.scss'
 import { NavLink } from 'react-router-dom';
 import { SiApple } from 'react-icons/si';
 import { useState, useEffect } from 'react';
-import { RiUserLine, RiSearchLine } from 'react-icons/ri';
+import { RiSearchLine } from 'react-icons/ri';
 import CartWidget from '../CartWidget/CartWidget.js';
 import { getCategories } from '../../services/firebase/firebase';
 import { useSearchContext } from '../../context/SearchContext';
@@ -51,20 +51,18 @@ export function NavCategories() {
 }
 
 function NavIcons() {
-    const [active, setActive] = useState(false);
     const [search, setSearch] = useState('');
-    const searchItem = useSearchContext();
+    const { searchItem } = useSearchContext();
 
   return (
     <div className='nav__icons'>
-        <RiSearchLine className='nav__icons--icon' onClick={() => setActive(true)}/>
-        {active && 
-            <>
-                <input type='text' placeholder='Buscar' onChange={({target}) => setSearch(target.value)}/>
-                <button onClick={() => searchItem(search)}>Buscar</button>
-            </>
-        }
-        <RiUserLine className='nav__icons--icon'/>
+        <div className='search__box'>
+            <input type='text' placeholder='Buscar productos' id='search' name='search' onChange={({target}) => setSearch(target.value)}/>
+            <NavLink to={`/search/${search}`}>
+            <RiSearchLine className='nav__icons--icon search__box-submit' onClick={() => searchItem(search)} />
+            </NavLink>
+        </div>
+        
         <CartWidget/>
     </div>
   )
