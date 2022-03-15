@@ -14,15 +14,13 @@ function SearchContext({children}) {
     }, []);
 
     function searchItem(search) {
-        const searchWords = search.split(' ');
-        
-        products.forEach(product => {
-            searchWords.forEach(word => {
-                if(product.name.toLowerCase().split(' ').includes(word.toLowerCase())){
-                    setProductsFinded([...productsFinded, product.id]);
-                };
-            });   
-        });
+        search = search.toLowerCase();
+
+        const filteredProducts = products.filter(product => {
+            return product.name.split(' ').some(search);
+        })
+
+        setProductsFinded(filteredProducts);
 
         console.log(productsFinded);
     };
