@@ -32,12 +32,12 @@ const ItemListContainer = () => {
     return(
         <>
             {spinner ? <Spinner /> :
-            <div className="container item__list"> 
-                {categoryId || productsFinded ? null : <h1 className='item__list--title'>Productos destacados.</h1>}
-                <div className="item__list--product">
-                    <ItemList products={productsFinded ? productsFinded : products}/> 
+                <div className="container item__list"> 
+                    {categoryId || productsFinded?.length ? null : <h1 className='item__list--title'>Productos destacados.</h1>}
+                    <div className="item__list--product">
+                        <ItemList products={productsFinded?.length ? productsFinded : products}/> 
+                    </div>
                 </div>
-            </div>
             }
         </>
     );
