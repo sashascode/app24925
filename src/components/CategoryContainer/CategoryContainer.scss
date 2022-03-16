@@ -10,7 +10,11 @@
     justify-items: center;
     gap: 2rem;
     padding: 3rem;
-    width: 55% !important;
+    width: 80% !important;
+
+    @include m.desktopXL{
+        width: 55% !important;
+    }
 }
 
 .white-bg {
