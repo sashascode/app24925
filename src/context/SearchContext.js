@@ -35,8 +35,16 @@ function SearchContext({children}) {
         };
     };
 
+    const clearContext = () => {
+        if(notFound || productsFinded){
+            setNotFound(false);
+            setProductsFinded();
+            setProducts();
+        }
+    };
+
   return (
-    <Context.Provider value={{ searchItem, productsFinded, notFound, setNotFound}}>
+    <Context.Provider value={{ searchItem, productsFinded, notFound, setNotFound, clearContext}}>
         {children}
     </Context.Provider>
   );

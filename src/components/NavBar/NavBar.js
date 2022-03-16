@@ -8,12 +8,14 @@ import { getCategories } from '../../services/firebase/firebase';
 import { useSearchContext } from '../../context/SearchContext';
 
 const NavBar = ({brandName}) => {
+    const { clearContext } = useSearchContext();
+
     return (
         <header>
             <div className="container nav">
                 <div className="nav__bar">
                     <NavLink to="/" className="nav__bar--brand">
-                        <h1 className="nav__bar--brand--name no-margin centrar-texto">
+                        <h1 className="nav__bar--brand--name no-margin centrar-texto" onClick={() => clearContext()}>
                             <span className='"nav__bar--brand--icon'><SiApple/></span><span className="bold">{brandName}</span>
                         </h1>    
                     </NavLink>
@@ -58,7 +60,7 @@ function NavIcons() {
   return (
     <div className='nav__icons'>
         <div className='search__box'>
-            <input type='text' placeholder='Buscar productos' id='search' name='search' onChange={({target}) => setSearch(target.value)}/>
+            <input type='text' placeholder='Buscar' id='search' name='search' onChange={({target}) => setSearch(target.value)}/>
             <NavLink to={`/search/${search}`}>
             <RiSearchLine className='nav__icons--icon search__box-submit' onClick={() => searchItem(search)}/>
             </NavLink>
