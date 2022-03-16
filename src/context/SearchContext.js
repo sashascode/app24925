@@ -36,7 +36,7 @@ function SearchContext({children}) {
     };
 
   return (
-    <Context.Provider value={{ searchItem, productsFinded, notFound}}>
+    <Context.Provider value={{ searchItem, productsFinded, notFound, setNotFound}}>
         {children}
     </Context.Provider>
   )
