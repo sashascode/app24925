@@ -1,13 +1,13 @@
 import './ContactForm.scss';
-import {writeBatch, getDoc, doc, addDoc, collection, Timestamp} from 'firebase/firestore';
-import {db} from '../../services/firebase/firebase';
-import {useState} from 'react'
-import {useCartContext} from '../../context/CartContext';
+import { writeBatch, getDoc, doc, addDoc, collection, Timestamp } from 'firebase/firestore';
+import { db } from '../../services/firebase/firebase';
+import { useState } from 'react'
+import { useCartContext } from '../../context/CartContext';
 import { useNotificationContext } from '../../services/Notification/Notification';
 import CartEmpty from '../CartEmpty/CartEmpty';
 import OrderId from '../OrderId/OrderId';
 
-function ContactForm() {
+const ContactForm = () => {
     const {setNotification} = useNotificationContext();
     const {cart, getTotal, clearCart, removeItem} = useCartContext();
     const [processingOrder, setProcessingOrder] = useState(false);
@@ -77,13 +77,13 @@ function ContactForm() {
     if(orderId){
         return(
             <OrderId orderId={orderId}/>
-        )
-    }
+        );
+    };
 
     if(cart.length === 0){
         return(
             <CartEmpty/>
-        ) 
+        ); 
     };
 
     return(
@@ -111,6 +111,7 @@ function ContactForm() {
             </form>   
             </div>
         </div>            
-    )
-}
+    );
+};
+
 export default ContactForm;

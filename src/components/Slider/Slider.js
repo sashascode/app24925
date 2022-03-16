@@ -4,7 +4,7 @@ import { getSliderData } from '../../services/firebase/firebase';
 import { MdArrowForwardIos, MdArrowBackIos } from 'react-icons/md';
 import { Spinner } from '../Spinner/Spinner';
 
-function Slider() {
+const Slider = () => {
   const [images, setImages] = useState([]);
   const [current, setCurrent] = useState(0);
  
@@ -12,17 +12,17 @@ function Slider() {
 
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
-  }
+  };
 
   const prevSlide = () => {
     setCurrent(current === 0  ? length - 1 : current - 1);
-  }
+  };
 
   useEffect(() => {
     
     getSliderData().then((images) => {
       setImages(images);
-    })
+    });
 
     return (() => {
       setImages()
@@ -32,7 +32,7 @@ function Slider() {
 
   if(!length){
     return <Spinner/>;
-  }
+  };
 
   return (
     <section className='slider'>
@@ -46,7 +46,7 @@ function Slider() {
         )
       })}
     </section>
-  )
-}
+  );
+};
 
 export default Slider;

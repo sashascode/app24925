@@ -2,8 +2,7 @@ import { NavCategories } from '../NavBar/NavBar';
 import './Footer.scss';
 import { Link } from 'react-router-dom';
 
-
-function Footer() {
+const Footer = () => {
   return (
     <footer id='footer'>
         <div className='footer__columns container'>
@@ -34,7 +33,7 @@ function Footer() {
             </div>
         </div>
     </footer>
-  )
-}
+  );
+};
 
 export default Footer;

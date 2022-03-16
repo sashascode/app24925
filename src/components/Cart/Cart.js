@@ -6,12 +6,12 @@ import ItemCount from '../ItemCount/ItemCount';
 import CartEmpty from '../CartEmpty/CartEmpty';
 
 
-function Cart() {
+const Cart = () => {
     const {cart, getQuantity, getTotal, removeItem, clearCart} = useCartContext();
 
     if(!cart.length){
        return <CartEmpty/>
-    }
+    };
 
     return (
         <div id='cart'>
@@ -55,7 +55,7 @@ function Cart() {
                     </div> 
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Cart;

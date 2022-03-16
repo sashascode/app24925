@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import './_ItemCount.scss';
 import { useCartContext } from "../../context/CartContext";
 
@@ -11,18 +11,18 @@ const ItemCount = ({cart = false, stock, initial, onAdd, productId}) => {
       setCount(count - 1);
       if(cart){
         decrementAmount(productId);
-      }
-    }
-  }
+      };
+    };
+  };
 
   const increment = () => {
     if(count < stock){
       setCount(count + 1);
       if(cart){
         incrementAmount(productId);
-      }
-    }
-  }
+      };
+    };
+  };
 
   return(
     <>
@@ -36,6 +36,6 @@ const ItemCount = ({cart = false, stock, initial, onAdd, productId}) => {
     </>
   );
 
-}
+};
 
 export default ItemCount;

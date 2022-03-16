@@ -2,7 +2,7 @@ import './OrderId.scss';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useNotificationContext } from '../../services/Notification/Notification';
 
-function OrderId({orderId}) {
+const OrderId = ({orderId}) => {
   const {setNotification} = useNotificationContext();
 
   return (
@@ -19,7 +19,7 @@ function OrderId({orderId}) {
         </CopyToClipboard>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default OrderId;

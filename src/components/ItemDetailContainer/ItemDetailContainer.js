@@ -4,7 +4,6 @@ import { Spinner } from '../Spinner/Spinner.js';
 import { useParams } from "react-router-dom";
 import { getProductById } from "../../services/firebase/firebase.js";
 
-
 export const ItemDetailContainer = () => {
     const [product, setProduct] = useState({});
     const [spinner, setSpinner] = useState(true);
@@ -17,7 +16,7 @@ export const ItemDetailContainer = () => {
         }).finally(setSpinner(false));
 
         return (() => {
-            setProduct()
+            setProduct();
         });
     }, [productId]);  
 
@@ -27,6 +26,4 @@ export const ItemDetailContainer = () => {
             {!spinner && <ItemDetail {...product}/>};
         </>
     );
-
-
-}
+};

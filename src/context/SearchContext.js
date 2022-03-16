@@ -3,7 +3,7 @@ import { getProducts } from '../services/firebase/firebase';
 
 const Context = createContext();
 
-function SearchContext({children}) {
+const SearchContext = ({children}) => {
     const [productsFinded, setProductsFinded] = useState([]);
     const [notFound, setNotFound] = useState(false);
     const [products, setProducts] = useState([]);
@@ -20,7 +20,7 @@ function SearchContext({children}) {
         });
     },[]);
 
-    function searchItem(search) {
+    const searchItem = (search) => {
         if(products){
             const filteredProducts = products.filter(product => {
                 return product.name.toLowerCase().includes(search.toLowerCase());
@@ -40,11 +40,11 @@ function SearchContext({children}) {
             setNotFound(false);
             setProductsFinded();
             setProducts();
-        }
+        };
     };
 
   return (
-    <Context.Provider value={{ searchItem, productsFinded, notFound, setNotFound, clearContext}}>
+    <Context.Provider value={{ searchItem, productsFinded, notFound, setNotFound, clearContext }}>
         {children}
     </Context.Provider>
   );

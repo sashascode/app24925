@@ -1,5 +1,5 @@
 
-function useLocalStorage() {
+const useLocalStorage = () => {
   const inLocalStorage = (key) =>
     JSON.parse(localStorage.getItem(key)) || null;
 
@@ -7,6 +7,6 @@ function useLocalStorage() {
     localStorage.setItem(key, JSON.stringify(data));
     
   return [inLocalStorage, setLocalStorage];
-}
+};
 
 export default useLocalStorage;

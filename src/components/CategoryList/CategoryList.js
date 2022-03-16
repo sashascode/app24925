@@ -1,7 +1,7 @@
 import Category from "../Category/Category";
 
-function CategoryList({categories}) {
+const CategoryList = ({categories}) => {
   return(categories?.map((category) => <Category key={category.id} category={category} />));
 }
 
-export default CategoryList
+export default CategoryList;

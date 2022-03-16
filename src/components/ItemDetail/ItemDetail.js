@@ -14,8 +14,8 @@ export const ItemDetail = ({name, price, description, img, stock, id, detail}) =
         if(count > 0){
             setCount(count);
             addItem({name, id, price, img, stock, detail}, count);
-        }
-    }
+        };
+    };
 
     return(
         <div className="container">
@@ -39,4 +39,4 @@ export const ItemDetail = ({name, price, description, img, stock, id, detail}) =
             </div>  
         </div>
     );
-}
+};

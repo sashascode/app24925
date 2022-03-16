@@ -4,7 +4,7 @@ import { Spinner } from '../Spinner/Spinner.js';
 import { getCategories } from "../../services/firebase/firebase";
 import './CategoryContainer.scss';
 
-function CategoryContainer() {
+const CategoryContainer = () => {
   const [categories, setCategories] = useState([]);
   const [spinner, setSpinner] = useState(true);
 
@@ -32,7 +32,7 @@ function CategoryContainer() {
       </div> 
     </> 
     
-  )
-}
+  );
+};
 
 export default CategoryContainer;

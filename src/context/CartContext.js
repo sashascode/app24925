@@ -3,7 +3,7 @@ import useLocalStorage from '../customHooks/useLocalStorage';
 
 const Context = createContext();
 
-export function CartContext({children}) {
+export const CartContext = ({children}) => {
     const [inLocalStorage, setLocalStorage] = useLocalStorage();
     const [cart, setCart] = useState(inLocalStorage('cart') || []);
 

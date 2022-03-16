@@ -29,7 +29,7 @@ const NavBar = ({brandName}) => {
 
 export default NavBar;
 
-export function NavCategories() {
+export const NavCategories = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
@@ -53,7 +53,7 @@ export function NavCategories() {
   )
 }
 
-function NavIcons() {
+const NavIcons = () => {
     const [search, setSearch] = useState('');
     const { searchItem } = useSearchContext();
 
@@ -67,5 +67,5 @@ function NavIcons() {
         </div>  
         <CartWidget/>
     </div>
-  )
-}
+  );
+};
