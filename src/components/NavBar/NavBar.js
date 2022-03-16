@@ -1,4 +1,4 @@
-import './_NavBar.scss'
+import './_NavBar.scss';
 import { NavLink } from 'react-router-dom';
 import { SiApple } from 'react-icons/si';
 import { useState, useEffect } from 'react';
@@ -44,7 +44,8 @@ export function NavCategories() {
                     isActive ? "nav__links--active" : "nav__links--category"}>
                         {cat.description} 
                 </NavLink> 
-            </li> )}
+            </li> 
+        )}
     </nav>
 
   )
@@ -59,10 +60,9 @@ function NavIcons() {
         <div className='search__box'>
             <input type='text' placeholder='Buscar productos' id='search' name='search' onChange={({target}) => setSearch(target.value)}/>
             <NavLink to={`/search/${search}`}>
-            <RiSearchLine className='nav__icons--icon search__box-submit' onClick={() => searchItem(search)} />
+            <RiSearchLine className='nav__icons--icon search__box-submit' onClick={() => searchItem(search)}/>
             </NavLink>
-        </div>
-        
+        </div>  
         <CartWidget/>
     </div>
   )

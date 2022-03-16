@@ -1,7 +1,7 @@
 import './Cart.scss';
 import { useCartContext } from '../../context/CartContext';
-import { FaRegTrashAlt } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { FaRegTrashAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 import CartEmpty from '../CartEmpty/CartEmpty';
 
@@ -58,4 +58,4 @@ function Cart() {
     )
 }
 
-export default Cart
+export default Cart;

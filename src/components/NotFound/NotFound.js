@@ -3,6 +3,7 @@ import { useSearchContext } from '../../context/SearchContext';
 
 function NotFound() {
   const { setNotFound } = useSearchContext();
+  
   return (
     <div className='centrar-texto'>
         <h2>No encontramos el producto :(</h2>

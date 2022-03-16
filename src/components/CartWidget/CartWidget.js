@@ -7,7 +7,7 @@ const CartWidget = () => {
     const {cart, getQuantity} = useCartContext();
 
     return(
-        <Link to='/cart'><button className='cart--icon'><FiShoppingCart/> {cart.length ? <span className='cart--icon__number'><p>{getQuantity()}</p></span> : null}  </button></Link> 
+        <Link to='/cart'><button className='cart--icon'><FiShoppingCart/> {cart.length && <span className='cart--icon__number'><p>{getQuantity()}</p></span>} </button></Link> 
     )
 } 
 

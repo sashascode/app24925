@@ -5,7 +5,7 @@ Tienda de productos de Apple con una interfaz sencilla y moderna.
 ## Dependencias descargadas
 
 * [Firebase](https://firebase.google.com)
-Utilizo el servicio de **Firebase** para almacenar y sincronizar en la base de datos **Firestore**, los datos de los productos y ordenes de compra de la aplicacion.
+Utilizo el servicio de **Firebase** para almacenar y sincronizar en la base de datos **Firestore** los datos de los productos y de ordenes de compra de la aplicacion.
 
 * [React Router](https://reactrouter.com/docs/en/v6)
 Utilizo esta libreria para crear rutas que rendericen diferentes componentes. Facilita la navegabilidad y le concede un enrutamiento dinamico a la aplicacion.

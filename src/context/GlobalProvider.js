@@ -11,7 +11,7 @@ const GlobalProvider = ({children}) => {
             </CartContext>
         </SearchContext>
     </NotificationProvider>
-  )
-}
+  );
+};
 
-export default GlobalProvider
+export default GlobalProvider;

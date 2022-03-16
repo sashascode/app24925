@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore"
-import { getDocs, collection, query, where, getDoc, doc } from 'firebase/firestore'
+import { getFirestore } from "firebase/firestore";
+import { getDocs, collection, query, where, getDoc, doc } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_apiKey,
@@ -24,7 +24,7 @@ export const getProducts = (categoryId) => {
     getDocs(collectionRef).then(querySnapshot => {
       const products = querySnapshot.docs.map((doc) => {
         return {id: doc.id, ...doc.data()};
-      })
+      });
       resolve(products);
     });
   });

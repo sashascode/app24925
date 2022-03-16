@@ -1,8 +1,8 @@
 import './Slider.scss';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import { getSliderData } from '../../services/firebase/firebase';
-import {MdArrowForwardIos, MdArrowBackIos} from 'react-icons/md';
-import {Spinner} from '../Spinner/spinner';
+import { MdArrowForwardIos, MdArrowBackIos } from 'react-icons/md';
+import { Spinner } from '../Spinner/Spinner';
 
 function Slider() {
   const [images, setImages] = useState([]);
@@ -49,4 +49,4 @@ function Slider() {
   )
 }
 
-export default Slider
+export default Slider;

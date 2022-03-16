@@ -1,6 +1,6 @@
 import { ItemList } from '../ItemList/ItemList.js';
 import { useEffect, useState } from 'react';
-import { Spinner } from '../Spinner/spinner.js';
+import { Spinner } from '../Spinner/Spinner.js';
 import { useParams } from "react-router-dom";
 import './_ItemListContainer.scss';
 import { getProducts } from '../../services/firebase/firebase.js';

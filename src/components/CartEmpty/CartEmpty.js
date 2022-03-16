@@ -1,5 +1,5 @@
-import './CartEmpty.scss'
-import {Link} from 'react-router-dom'
+import './CartEmpty.scss';
+import {Link} from 'react-router-dom';
 
 function CartEmpty() {
   return (
@@ -12,4 +12,4 @@ function CartEmpty() {
   )
 }
 
-export default CartEmpty
+export default CartEmpty;

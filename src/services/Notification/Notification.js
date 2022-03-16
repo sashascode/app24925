@@ -1,16 +1,16 @@
-import './Notification.scss'
-import {useState, createContext, useContext} from 'react'
-import {VscPass, VscError} from 'react-icons/vsc'
+import './Notification.scss';
+import { useState, createContext, useContext } from 'react';
+import { VscPass, VscError } from 'react-icons/vsc';
 
 function Notification({severity, message}) {
   if(message === ''){
-      return null;
-  }  
+    return null;
+  };  
 
   return (
     <div className={`notification ${severity}`}> {severity === 'error' ? <VscError/> : <VscPass/>} {message}</div>
-  )
-}
+  );
+};
 
 const NotificationContext = createContext();
 
@@ -22,19 +22,19 @@ export const NotificationProvider = ({children}) => {
         setMessage(message);
         setSeverity(severity);
         setTimeout(() => {
-            setMessage('')
+            setMessage('');
         }, 4000);
-    }
+    };
 
     return(
         <NotificationContext.Provider value={{setNotification}}>
             <Notification severity={severity} message={message}/>
             {children}
         </NotificationContext.Provider>
-    )
+    );
 
 }
 
 export const useNotificationContext = () => {
    return useContext(NotificationContext);
-}
+};

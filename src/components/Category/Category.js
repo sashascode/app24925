@@ -1,5 +1,5 @@
-import './Category.scss'
-import {Link} from 'react-router-dom'
+import './Category.scss';
+import {Link} from 'react-router-dom';
 
 function Category({category}) {
   return (
@@ -12,4 +12,4 @@ function Category({category}) {
   )
 }
 
-export default Category
+export default Category;

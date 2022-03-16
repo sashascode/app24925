@@ -1,6 +1,6 @@
-import { NavCategories } from '../NavBar/NavBar'
-import './Footer.scss'
-import {Link} from 'react-router-dom'
+import { NavCategories } from '../NavBar/NavBar';
+import './Footer.scss';
+import { Link } from 'react-router-dom';
 
 
 function Footer() {
@@ -37,4 +37,4 @@ function Footer() {
   )
 }
 
-export default Footer
+export default Footer;

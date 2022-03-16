@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CategoryList from '../CategoryList/CategoryList';
-import { Spinner } from '../Spinner/spinner.js';
+import { Spinner } from '../Spinner/Spinner.js';
 import { getCategories } from "../../services/firebase/firebase";
 import './CategoryContainer.scss';
 
@@ -35,4 +35,4 @@ function CategoryContainer() {
   )
 }
 
-export default CategoryContainer
+export default CategoryContainer;

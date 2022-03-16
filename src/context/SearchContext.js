@@ -17,8 +17,8 @@ function SearchContext({children}) {
             setProducts();
             setProductsFinded();
             setNotFound();
-        })
-    },[])
+        });
+    },[]);
 
     function searchItem(search) {
         if(products){
@@ -31,7 +31,7 @@ function SearchContext({children}) {
             } else {
                 setProductsFinded(filteredProducts);
                 setNotFound(false);
-            }
+            };
         };
     };
 
@@ -39,11 +39,11 @@ function SearchContext({children}) {
     <Context.Provider value={{ searchItem, productsFinded, notFound, setNotFound}}>
         {children}
     </Context.Provider>
-  )
-}
+  );
+};
 
 export default SearchContext;
 
 export const useSearchContext = () => {
     return useContext(Context);
-}
+};
