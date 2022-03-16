@@ -20,7 +20,7 @@ const SearchContext = ({children}) => {
         });
     },[]);
 
-    const searchItem = (search) => {
+    const searchItem = (search, setSearch) => {
         if(products){
             const filteredProducts = products.filter(product => {
                 return product.name.toLowerCase().includes(search.toLowerCase());
@@ -33,6 +33,8 @@ const SearchContext = ({children}) => {
                 setNotFound(false);
             };
         };
+
+        setSearch('');
     };
 
     const clearContext = () => {

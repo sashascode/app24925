@@ -60,9 +60,9 @@ const NavIcons = () => {
   return (
     <div className='nav__icons'>
         <div className='search__box'>
-            <input type='text' placeholder='Buscar' id='search' name='search' onChange={({target}) => setSearch(target.value)}/>
+            <input type='text' placeholder='Buscar' id='search' name='search' value={search} onChange={({target}) => setSearch(target.value)}/>
             <NavLink to={`/search/${search}`}>
-            <RiSearchLine className='nav__icons--icon search__box-submit' onClick={() => searchItem(search)}/>
+                <RiSearchLine className='nav__icons--icon search__box-submit' onClick={() => searchItem(search, setSearch)}/>
             </NavLink>
         </div>  
         <CartWidget/>
