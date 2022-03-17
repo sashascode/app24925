@@ -10,18 +10,18 @@ Tienda de productos de Apple con una interfaz sencilla y moderna.
 ## Dependencias
 
 * [React Router](https://reactrouter.com/docs/en/v6)
-Utilizo esta libreria para crear rutas que rendericen diferentes componentes. Facilita la navegabilidad y le concede un enrutamiento dinamico a la aplicacion.
+Utilizo esta librería para crear rutas que rendericen diferentes componentes. Facilita la navegabilidad y le concede un enrutamiento dinámico a la aplicación.
 
 * [React Icons](https://react-icons.github.io/react-icons/)
-Todos los iconos de la aplicacion son componentes importados de esta libreria.
+Todos los íconos de la aplicación son componentes importados de esta librería.
 
 * [react-copy-to-clipboard](https://www.npmjs.com/package/react-copy-to-clipboard)
-Esta libreria provee a la aplicacion un componente que recibe una cadena de texto como prop que el usuario va a poder copiar al portapapeles con mayor facilidad.
+Esta librería provee a la aplicación un componente que recibe una cadena de texto como prop que el usuario va a poder copiar al portapapeles con mayor facilidad.
 
 * [react-fade-in](https://www.npmjs.com/package/react-fade-in)
-Esta libreria permite agregarle una animacion de Fade In a cualquier elemento. Es utilizada en este proyecto para una mejor experiencia de usuario.
+Esta librería permite agregarle una animación de Fade In a cualquier elemento. Es utilizada en éste proyecto para una mejor experiencia de usuario.
 
-## Ejecucion local
+## Ejecución local
 Siga las instrucciones para ver el sitio de manera local.
 
 1. Abrir una nueva terminal y clonar el repositorio con el siguiente comando:
@@ -29,12 +29,12 @@ Siga las instrucciones para ver el sitio de manera local.
     git clone https://github.com/sxshita/app24925.git
 ```
 
-2. Desde la terminal nos ubicamos en la carpeta raiz del proyecto e instalamos todas las dependencias con el comando:
+2. Desde la terminal nos ubicamos en la carpeta raíz del proyecto e instalamos todas las dependencias con el comando:
 ```
     npm install
 ```
 
-3. Por ultimo corremos nuestro proyecto con el comando:
+3. Por último corremos nuestro proyecto con el comando:
 ```
     npm start
 ```
