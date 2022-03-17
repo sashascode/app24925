@@ -17,58 +17,64 @@ const ContactForm = () => {
     const [name, setName] = useState('');
     const [zip, setZip] = useState('');
     const [orderId, setOrderId] = useState('');
+
+    const phoneRegex =  /^\d{4,14}$/; 
    
     const handleContactForm = (e) => {
         e.preventDefault();
         if(name !== '' && address !== '' && email !== '' && phone !== '' && zip !== ''){
-            const objOrder = {
-                buyer: {
-                name: name,
-                phone: phone,
-                email: email,
-                address: address,
-                zip: zip
-                },
-                items: cart,
-                total: getTotal(),
-                date: Timestamp.fromDate(new Date())
-            };
 
-            const batch = writeBatch(db);
-            const outOfStock = [];
-
-            const executeOrder = () => {
-                setProcessingOrder(true);
-                if(outOfStock.length === 0){
-                    addDoc(collection(db, 'orders'), objOrder).then(({id}) => {
-                        batch.commit().then(() => {
-                            setOrderId(id);
-                            setNotification('success',`Bien! La orden se genero exitosamente`);
-                        });
-                    }).finally(() => {
-                        clearCart();
-                        setProcessingOrder(false)
-                    });
-                } else {
-                    outOfStock.forEach(prod => {
-                        setNotification('error',`El producto ${prod.name} se encuentra agotado :(`);
-                        removeItem(prod.id);
-                    });
+            if(phoneRegex.test(phone)){
+                const objOrder = {
+                    buyer: {
+                    name: name,
+                    phone: phone,
+                    email: email,
+                    address: address,
+                    zip: zip
+                    },
+                    items: cart,
+                    total: getTotal(),
+                    date: Timestamp.fromDate(new Date())
                 };
-            };
-
-            objOrder.items.forEach((prod) => {
-                getDoc(doc(db, 'products', prod.id)).then(response => {
-                    if(response.data().stock >= prod.count){
-                        batch.update(doc(db, 'products', response.id), {
-                            stock: response.data().stock - prod.count
+    
+                const batch = writeBatch(db);
+                const outOfStock = [];
+    
+                const executeOrder = () => {
+                    setProcessingOrder(true);
+                    if(outOfStock.length === 0){
+                        addDoc(collection(db, 'orders'), objOrder).then(({id}) => {
+                            batch.commit().then(() => {
+                                setOrderId(id);
+                                setNotification('success',`Bien! La orden se genero exitosamente`);
+                            });
+                        }).finally(() => {
+                            clearCart();
+                            setProcessingOrder(false)
                         });
                     } else {
-                        outOfStock.push({id: response.id, ...response.data()});
+                        outOfStock.forEach(prod => {
+                            setNotification('error',`El producto ${prod.name} se encuentra agotado :(`);
+                            removeItem(prod.id);
+                        });
                     };
-                }).catch(err => console.log(err)).then(() => executeOrder()).finally(setProcessingOrder(false));
-            });
-        
+                };
+    
+                objOrder.items.forEach((prod) => {
+                    getDoc(doc(db, 'products', prod.id)).then(response => {
+                        if(response.data().stock >= prod.count){
+                            batch.update(doc(db, 'products', response.id), {
+                                stock: response.data().stock - prod.count
+                            });
+                        } else {
+                            outOfStock.push({id: response.id, ...response.data()});
+                        };
+                    }).catch(err => console.log(err)).then(() => executeOrder()).finally(setProcessingOrder(false));
+                });
+            } else {
+                setNotification('error', 'Número de teléfono inválido')
+            }
         } else {
             setNotification('error', 'Todos los campos son obligatorios!');
         };
