@@ -25,7 +25,7 @@ const ItemListContainer = () => {
         });
     },[categoryId]);
 
-    if(notFound){
+    if(notFound && searchId){
         return <NotFound/>
     };
 
