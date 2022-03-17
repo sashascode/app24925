@@ -3,7 +3,7 @@
 Tienda de productos de Apple con una interfaz sencilla y moderna.
 
 # Demo
-![Alt Text](https://www.canva.com/design/DAE7P8QbunE/AZVw8Wn7xJr9qgbwUNG8RA/watch)
+![Demo](https://media.giphy.com/media/BUQid1924r8lrZEwTF/giphy.gif)
 
 ## Construido con
 * [ReactJS](https://reactjs.org/)
