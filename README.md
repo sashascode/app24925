@@ -39,13 +39,13 @@ Siga las instrucciones para ver el sitio de manera local.
     npm start
 ```
 
-## Informacion sobre desarrollo
+## Información sobre desarrollo
 ### Rutas
-* **Main** *("/")*: Renderiza un slider de imagenes (banners), un container para acceder a las distintas categorias de productos y un container con todos los productos existentes en la base de datos.
-* **Category** *("/category/:categoryId")*: Renderiza productos filtrados en base a su categoria.
-* **Search** *("/search/:searchId)*: Renderiza aquellos productos que su propiedad 'name' coincida con la busqueda (searchId). Si ningun producto coincide con la busqueda se renderiza el componente NotFound donde avisa que el producto no fue encontrado y un boton para volver a la pagina de inicio (Main).
-* **Search Error** *("/search")*: Renderiza el componente NotFound en caso de que el usuario haya enviado una busqueda vacia.
-* **Item** *("/detail/:productId")*: Renderiza una card con los detalles de el producto seleccionado (nombre, descripcion, imagen, stock). Tambien tiene disponible un boton que es el encargado de agregar el producto al carrito, una vez agregado el producto, se renderiza otro boton que redirecciona al usuario a su carrito de compras.
-* **Cart** *("/cart")*: Renderiza el carrito de compras con los productos agregados por el usuario. Si no se agrego ningun producto renderiza el componente CartEmpty que renderiza un aviso de "No hay productos".
-* **Order** *("/order")*: Renderiza un formulario para generar una orden en la base de datos, al enviar el formulario si todos los campos estan bien renderiza un cartel con el ID de la orden generada. 
+* **Main** *("/")*: Renderiza un slider de imágenes (banners), un container para acceder a las distintas categorías de productos y un container con todos los productos existentes en la base de datos.
+* **Category** *("/category/:categoryId")*: Renderiza productos filtrados en base a su categoría.
+* **Search** *("/search/:searchId)*: Renderiza aquellos productos que su propiedad 'name' coincida con la búsqueda (searchId). Si ningún producto coincide con la búsqueda se renderiza el componente NotFound donde avisa que el producto no fue encontrado y un botón para volver a la página de inicio (Main).
+* **Search Error** *("/search")*: Renderiza el componente NotFound en caso de que el usuario haya enviado una búsqueda vacía.
+* **Item** *("/detail/:productId")*: Renderiza una card con los detalles de el producto seleccionado (nombre, descripción, imágen, stock). También tiene disponible un botón que es el encargado de agregar el producto al carrito, una vez agregado el producto, se renderiza otro botón que redirecciona al usuario a su carrito de compras.
+* **Cart** *("/cart")*: Renderiza el carrito de compras con los productos agregados por el usuario. Si no se agregó ningún producto renderiza el componente CartEmpty que retorna un aviso de "No hay productos".
+* **Order** *("/order")*: Renderiza un formulario para generar una orden en la base de datos, al enviar el formulario si todos los campos están bien renderiza un cartel con el ID de la orden generada. 
 
