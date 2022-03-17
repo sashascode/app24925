@@ -10,7 +10,7 @@ import NotFound from '../NotFound/NotFound.js';
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
     const [spinner, setSpinner] = useState(true);
-    const { categoryId, search } = useParams();
+    const { categoryId, searchId } = useParams();
     const { productsFinded, notFound } = useSearchContext();
 
     useEffect(() => {
@@ -33,9 +33,9 @@ const ItemListContainer = () => {
         <>
             {spinner ? <Spinner /> :
                 <div className="container item__list"> 
-                    {categoryId || !notFound ? null : <h1 className='item__list--title'>Productos destacados.</h1>}
+                    {categoryId || searchId ? null : <h1 className='item__list--title'>Productos destacados.</h1>}
                     <div className="item__list--product">
-                        <ItemList products={search ? productsFinded : products}/> 
+                        <ItemList products={searchId ? productsFinded : products}/> 
                     </div>
                 </div>
             }
