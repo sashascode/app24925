@@ -14,13 +14,16 @@ const SearchContext = ({children}) => {
         });
 
         return(() => {
-            setProducts();
+            setNotFound(false);
             setProductsFinded();
-            setNotFound();
-        });
+            setProducts();
+        })
+
     },[]);
 
     const searchItem = (search ) => {
+        setNotFound(false);
+        
         if(products){
             const filteredProducts = products.filter(product => {
                 return product.name.toLowerCase().includes(search.toLowerCase());
@@ -35,16 +38,9 @@ const SearchContext = ({children}) => {
         };
     };
 
-    const clearContext = () => {
-        if(notFound || productsFinded){
-            setNotFound(false);
-            setProductsFinded();
-            setProducts();
-        };
-    };
 
   return (
-    <Context.Provider value={{ searchItem, productsFinded, notFound, setNotFound, clearContext }}>
+    <Context.Provider value={{ searchItem, productsFinded, notFound, setNotFound }}>
         {children}
     </Context.Provider>
   );
