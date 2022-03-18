@@ -1,0 +1,48 @@
+@use '../../scss/base/variables' as v;
+
+.slider {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__forward-arrow {
+        position: absolute;
+        top: 50%;
+        right: 3.2rem;
+        font-size: 4rem;
+        color: v.$soft-black;
+        z-index: 10;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    &__back-arrow {
+        position: absolute;
+        top: 50%;
+        left: 3.2rem;
+        font-size: 4rem;
+        color: v.$soft-black;
+        z-index: 10;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    &__image-banner {
+        width: 192rem;
+        height: 54rem;
+        max-width: 100%;
+    }
+
+}
+
+.slide {
+    opacity: 0;
+    transition-duration: 1s ease;
+    &.active {
+        opacity: 1;
+        transition-duration: 1s;
+    }
+}
+

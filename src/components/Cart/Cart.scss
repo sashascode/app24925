@@ -1,0 +1,154 @@
+@use '../../scss/base/globales';
+@use '../../scss/base/variables' as v;
+@use '../../scss/base/mixins' as m;
+
+#cart {
+  background: v.$grisaseo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10rem auto;
+}
+
+
+//* Cart *//
+
+.cart {
+  width: 70%;
+  padding: 2rem;
+  background-color: v.$blanco;
+  box-shadow: 
+        0 1px 1px rgba(0,0,0,0.12), 
+        0 2px 2px rgba(0,0,0,0.12), 
+        0 4px 4px rgba(0,0,0,0.12), 
+        0 8px 8px rgba(0,0,0,0.12),
+        0 16px 16px rgba(0,0,0,0.12);
+
+  h1 {
+    color: v.$soft-black;
+  }
+
+  &__header{
+    margin: auto;
+    width: 90%;
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--heading {
+      font-size: 3rem;
+      font-family: v.$principalFont;
+      font-weight: 700;
+    }
+
+    &--action {
+      font-size: 1.4rem;
+      font-family: v.$principalFont;
+      font-weight: 600;
+      color: v.$fucsia;
+      cursor: pointer;
+      border-bottom: 1px solid v.$fucsia;
+    }
+
+  }
+}
+
+.cart__item {
+  margin: auto;
+  width: 90%;
+  height: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &--img {
+    width: 15% ;
+    text-align: center;
+  }
+
+  &--about {
+    height: 100%;
+  }
+
+  &--title {
+    padding-top: 5px;
+    line-height: 1rem;
+    font-family: v.$principalFont;
+    font-weight: 800;
+  }
+
+  &--detail {
+    line-height: 10px;
+    font-size: 18px;
+    font-family: v.$principalFont;
+    font-weight: 400;
+    color: v.$gris;
+  }
+
+  &--prices {
+    height: 100%;
+    text-align: right;
+    display: flex;
+  }
+
+  &--amount {
+    font-size: 26px;
+    font-family: v.$principalFont;
+    font-weight: 600;
+    color: v.$soft-black;
+  }
+
+  &--trash {
+    color: v.$gris;
+    font-size: 3rem;
+    margin-left: 8rem;
+    &:hover{
+      cursor: pointer;
+      color: v.$fucsia;
+    }
+  }
+}
+
+hr {
+  width: 66%;
+  float: right;
+  margin-right: 5%;
+  color: v.$gris;
+}
+
+.cart__checkout {
+  float: right;
+  margin-right: 5%;
+  width: 28%;
+}
+
+.cart__total {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  &--subtotal {
+    font-size: 22px;
+    font-family: v.$principalFont;
+    font-weight: 700;
+    color: v.$soft-black;
+    margin-bottom: 5px;
+  }
+
+  &--items {
+    font-size: 16px;
+    font-family: v.$principalFont;
+    font-weight: 500;
+    color: v.$gris;
+    line-height: 10px;
+    margin-bottom: 1.5rem;
+  }
+
+  &--amount {
+    font-size: 36px;
+    font-family: v.$principalFont;
+    font-weight: 600;
+    color: v.$soft-black;
+  }
+}

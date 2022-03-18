@@ -1,0 +1,22 @@
+@use '../../scss/base/globales';
+@use '../../scss/base/variables' as v;
+@use '../../scss/base/mixins' as m;
+
+.category__container {
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: relative;
+    justify-items: center;
+    gap: 2rem;
+    padding: 3rem;
+    width: 80% !important;
+
+    @include m.desktopXL{
+        width: 55% !important;
+    }
+}
+
+.white-bg {
+    background-color: white;
+}

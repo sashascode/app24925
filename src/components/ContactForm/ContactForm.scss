@@ -1,0 +1,66 @@
+@use '../../scss/base/globales';
+@use '../../scss/base/variables' as v;
+@use '../../scss/base/mixins' as m;
+
+#form {
+    background: v.$grisaseo;
+    
+}
+
+.form {
+    padding: 2rem;
+    background-color: v.$blanco;
+    box-shadow: 
+    0 1px 1px rgba(0,0,0,0.12), 
+    0 2px 2px rgba(0,0,0,0.12), 
+    0 4px 4px rgba(0,0,0,0.12), 
+    0 8px 8px rgba(0,0,0,0.12),
+    0 16px 16px rgba(0,0,0,0.12);
+
+    @include m.tablet {
+        width: 95rem;
+        height: 58rem;
+        margin: 10rem;
+        width: 50%;
+    }
+
+    @include m.desktopXL {
+        margin-left: 47.5rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+        font-family: v.$principalFont;
+        font-weight: 700;
+    }
+
+    h2 {
+        font-weight: 400;
+    }
+}
+
+.form__content {
+    p {
+        font-size: 1.4rem;
+        color: v.$gris;
+        margin: 2rem 0 0 0;
+    }
+
+    label {
+        font-weight: bold;
+        text-transform: uppercase;
+        display: block;
+    }
+
+    input:not([type="submit"]),
+    textarea {
+        padding: 1rem;
+        display: block;
+        width: 100%;
+        background-color: v.$blanco;
+        border: 1px solid v.$gris;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+}
+

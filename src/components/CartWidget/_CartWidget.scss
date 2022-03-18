@@ -1,0 +1,47 @@
+@use '../../scss/base/globales';
+@use '../../scss/base/variables' as v;
+
+.cart--icon {
+    position: relative;
+    border: none;
+    background-color: #252422;
+    font-size: 2rem;
+    font-family: v.$principalFont;
+    color: v.$blanco;
+    top: .3rem;
+    right: .5rem;
+
+    &:hover {
+        cursor: pointer;
+        font-weight: bold;
+        color: v.$fucsia;
+    }
+    
+    &__number {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-left: 1rem;
+        transform: translate(50%, -50%);
+        font-size: .5rem;
+        font-family: v.$principalFont;
+        font-weight: 400;
+        text-align: center;
+        height: 2rem;
+        width: 2rem;
+        background: v.$fucsia;
+        border-radius: 50%;
+        color: v.$blanco;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 3;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+}
+
+
+

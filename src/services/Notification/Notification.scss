@@ -1,0 +1,22 @@
+@use '../../scss/base/globales';
+@use '../../scss/base/variables' as v;
+
+.notification {
+    position: absolute;
+    top: 10rem;
+    right: 10rem;
+    width: auto;
+    font-size: 1.6rem;
+    height: auto;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+}
+
+.success {
+    background-color: v.$verde;
+}
+
+.error {
+    background-color: v.$rojo;
+}

@@ -1,0 +1,171 @@
+@use 'variables' as v;
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    position: relative;
+    background-color: rgb(245, 243, 243);
+    min-height:100vh; 
+    margin:0;
+    &::after {
+        content: '';
+        display: block;
+        height: 300px;
+    }
+}
+
+h1 {
+    font-family: v.$principalFont;
+    font-weight: bold;
+    line-height: 1.2;
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+p {
+    font-family: v.$principalFont;
+    font-size: 1.5rem;
+}
+
+a {
+    font-family: v.$principalFont;
+    text-decoration: inherit;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+del {
+    color: v.$gris;
+    font-size: 1.5rem;
+}
+
+img {
+    width: 90%;
+}
+
+ul { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+/** Utilidades **/
+.no-margin {
+    margin: 0;
+}
+.centrar-texto {
+    text-align: center;
+}
+
+.display-none {
+    display: none;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/** Botones **/
+.boton {
+    display: inline-block;
+    color: v.$blanco;
+    text-align: center;
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 999px;
+    font-family: v.$principalFont;
+    &:hover {
+        cursor: pointer;
+        color: v.$blanco;
+    }
+    &:link {
+        text-decoration: none;
+    }
+    &:visited {
+        color: v.$blanco;
+        font-family:  v.$principalFont;
+        text-decoration: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .boton {
+        display: inline-block;
+
+    }
+}
+
+.boton--primario {
+    background-color: v.$azul;
+    margin: 0;
+    &:hover {
+        background-color: #73a9ff;
+    }
+}
+
+.boton--secundario {
+    background-color: v.$fucsia;
+    border: none;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: v.$blanco;
+    font-weight: bold;
+    font-family: v.$principalFont;
+    font-size: 1.5rem;
+    &:hover {
+        cursor: pointer;
+    }
+} 
+
+.boton--ver {
+    background-color: transparent;
+    border: 2px solid v.$gris;
+    color: v.$gris;
+    &:hover {
+        background-color: v.$azul;
+        border: none;
+        color: v.$blanco;
+    }
+}
+
+/** Cards **/
+.card {
+    background: v.$blanco;
+    width: 290px;
+    height: 450px;
+    padding: 20px;
+    text-align: center;
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+        0 2px 2px rgba(0,0,0,0.11), 
+        0 4px 4px rgba(0,0,0,0.11), 
+        0 6px 8px rgba(0,0,0,0.11),
+        0 8px 16px rgba(0,0,0,0.11);
+ 
+    }
+}
+

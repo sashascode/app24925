@@ -1,0 +1,32 @@
+@use '../../scss/base/globales';
+@use '../../scss/base/variables' as v;
+
+.card__content--item {
+    color: v.$negro;
+
+    &:hover {
+        cursor: pointer;
+        color: v.$negro;
+    }
+
+    &:visited {
+        color: v.$negro;
+        font-family: v.$principalFont;
+        text-decoration: none;
+    }
+    
+    &:link {
+        text-decoration: none;
+    }
+}
+
+.item--price {
+    color: v.$fucsia;
+    font-size: 1.8rem;
+}
+
+.item--name {
+    font-size: 1.5rem;
+    color: #1d1d1c;
+    font-weight: normal;
+}
