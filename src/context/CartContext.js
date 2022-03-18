@@ -1,11 +1,13 @@
 import { useState,createContext, useContext, useEffect } from 'react';
 import useLocalStorage from '../customHooks/useLocalStorage';
+import { useNotificationContext } from '../services/Notification/Notification';
 
 const Context = createContext();
 
 export const CartContext = ({children}) => {
     const [inLocalStorage, setLocalStorage] = useLocalStorage();
     const [cart, setCart] = useState(inLocalStorage('cart') || []);
+    const { setNotification } = useNotificationContext();
 
     useEffect(() => {
         setLocalStorage('cart',cart);
@@ -30,6 +32,8 @@ export const CartContext = ({children}) => {
         } else { 
             setCart([...cart, newObj]); 
         };
+
+        setNotification('success', `Se agregó ${productToAdd.name} al carrito`);
     };
 
     const removeItem = (id) => {
