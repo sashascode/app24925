@@ -56,9 +56,14 @@ const NavIcons = () => {
     const { searchItem } = useSearchContext();
     const navigate = useNavigate();
 
-    const handleClick = () => {
-        setBlur(false);
-        setSearch('');
+    const handleClick = (type) => {  
+        if(type === 'input') {
+            setBlur(false);
+            setSearch('');
+        } else {
+            searchItem(search);
+            navigate(`/search/${search}`);
+        };
     }; 
 
     const handleKeyUp = (e) => {
@@ -78,12 +83,12 @@ const NavIcons = () => {
                 id='search' 
                 name='search' 
                 value={blur ? '' : search} 
-                onClick={() => handleClick()} 
+                onClick={() => handleClick('input')} 
                 onBlur={() => setBlur(true) } 
                 onChange={({target}) => setSearch(target.value)}
                 onKeyUp={(e) => handleKeyUp(e)}
             />   
-            <RiSearchLine className='nav__icons--icon search__box-submit'/>
+            <RiSearchLine onClick={() => handleClick('icon') } className='nav__icons--icon search__box-submit'/>
         </div>  
         <CartWidget/>
     </div>

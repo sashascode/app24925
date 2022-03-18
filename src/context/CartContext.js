@@ -80,21 +80,6 @@ export const CartContext = ({children}) => {
         setCart(cartUpdated);
     };
 
-    const getQuantityById = (id) => {
-        let itemQuantity;
-        cart.forEach(product => {
-            if(product.id === id){
-                if(product.count > 0){
-                    itemQuantity = product.stock - product.count;
-                } else {
-                    itemQuantity = product.stock;
-                }; 
-                console.log(itemQuantity)
-            };
-        });
-        return itemQuantity;
-    };
-
   return (
     <Context.Provider value={{
         cart,
@@ -105,8 +90,7 @@ export const CartContext = ({children}) => {
         getTotal,
         setCart,
         decrementAmount,
-        incrementAmount,
-        getQuantityById
+        incrementAmount
     }}>
         {children}
     </Context.Provider>
