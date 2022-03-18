@@ -45,7 +45,7 @@ export const NavCategories = () => {
                         {cat.description} 
                 </NavLink> 
             </li> 
-        )};
+        )}
     </nav>
   );
 };
