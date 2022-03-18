@@ -8,7 +8,6 @@ import { getCategories } from '../../services/firebase/firebase';
 import { useSearchContext  } from '../../context/SearchContext';
 
 const NavBar = ({brandName}) => {
-
     return (
         <header>
             <div className="container nav">
@@ -23,8 +22,8 @@ const NavBar = ({brandName}) => {
                 </div>
             </div>
         </header>
-    )
-}
+    );
+};
 
 export default NavBar;
 
@@ -46,11 +45,10 @@ export const NavCategories = () => {
                         {cat.description} 
                 </NavLink> 
             </li> 
-        )}
+        )};
     </nav>
-
-  )
-}
+  );
+};
 
 const NavIcons = () => {
     const [search, setSearch] = useState('');
@@ -83,11 +81,9 @@ const NavIcons = () => {
                 onClick={() => handleClick()} 
                 onBlur={() => setBlur(true) } 
                 onChange={({target}) => setSearch(target.value)}
-                OnKeyUp={(e) => handleKeyUp(e)}
-            /> 
-            <NavLink to={`/search/${search}`}>
-                <RiSearchLine className='nav__icons--icon search__box-submit' onClick={() => searchItem(search)}/>
-            </NavLink>
+                onKeyUp={(e) => handleKeyUp(e)}
+            />   
+            <RiSearchLine className='nav__icons--icon search__box-submit'/>
         </div>  
         <CartWidget/>
     </div>
