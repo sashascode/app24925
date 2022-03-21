@@ -16,22 +16,19 @@ const CategoryContainer = () => {
 
     return (() => {
       setCategories()
-    })
+    });
   },[]);
 
   if(spinner){
     return <Spinner/>;
-  }
+  };
 
   return (
-    <>
       <div className="white-bg">
         <section className='container category__container'>
           <CategoryList categories={categories} />
         </section>
       </div> 
-    </> 
-    
   );
 };
 

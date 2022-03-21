@@ -14,7 +14,10 @@
 //* Cart *//
 
 .cart {
-  width: 70%;
+  width: 100%;
+  @include m.tablet {
+    width: 70%;
+  }
   padding: 2rem;
   background-color: v.$blanco;
   box-shadow: 
@@ -56,38 +59,47 @@
 
 .cart__item {
   margin: auto;
-  width: 90%;
-  height: 30%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
+  @include m.desktop  {
+    height: 30%;
+    width: 90%;
+  }
+
   &--img {
-    width: 15% ;
-    text-align: center;
+    width: 100%;
+    @include m.desktop {
+      width: 15% ;
+    }
   }
 
   &--about {
     height: 100%;
   }
 
-  &--title {
-    padding-top: 5px;
-    line-height: 1rem;
-    font-family: v.$principalFont;
-    font-weight: 800;
+  &--name {
+    font-size: 2rem;
+    @include m.desktop{
+      line-height: 1rem;
+      font-size: 2.5rem;
+    }
   }
 
   &--detail {
-    line-height: 10px;
-    font-size: 18px;
+    font-size: 1.5rem;
     font-family: v.$principalFont;
     font-weight: 400;
     color: v.$gris;
+    @include m.desktop{
+      line-height: 1rem;
+      font-size: 1.8rem;
+    }
   }
 
   &--prices {
-    height: 100%;
     text-align: right;
     display: flex;
   }
@@ -129,11 +141,12 @@ hr {
   justify-content: space-between;
 
   &--subtotal {
-    font-size: 22px;
+    font-size: 2.2rem;
     font-family: v.$principalFont;
     font-weight: 700;
     color: v.$soft-black;
     margin-bottom: 5px;
+    margin-right: 5px;
   }
 
   &--items {

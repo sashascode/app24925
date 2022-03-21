@@ -5,18 +5,22 @@
 .category__container {
     background-color: white;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    position: relative;
+    grid-template-columns: repeat(1, 1fr);
     justify-items: center;
     gap: 2rem;
     padding: 3rem;
-    width: 80% !important;
 
-    @include m.desktopXL{
+    @include m.desktop {
         width: 55% !important;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 .white-bg {
     background-color: white;
+    max-width: 100%;
+    height: auto;
+    @include m.tablet {
+        width: 100%;
+    }
 }

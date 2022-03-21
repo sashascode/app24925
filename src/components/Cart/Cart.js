@@ -29,7 +29,7 @@ const Cart = () => {
                                     <img src={product.img} alt={product.name} className='cart__item--image'/>
                                 </div>
                                 <div className='cart__item--about'>
-                                    <h1 className="cart__item--name" style={{fontSize: 25}}>{product.name}</h1>
+                                    <h1 className="cart__item--name">{product.name}</h1>
                                     <h3 className='cart__item--detail'>{product.detail}</h3>
                                 </div>
                                 <div className='cart__item--counter'><ItemCount cart={true} stock={product.stock} initial={product.count} productId={product.id}/> </div>
