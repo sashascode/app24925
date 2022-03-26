@@ -1,6 +1,6 @@
 import './ContactForm.scss';
-import { writeBatch, getDoc, doc, addDoc, collection, Timestamp } from 'firebase/firestore';
-import { db } from '../../services/firebase/firebase';
+import { writeBatch, doc, Timestamp } from 'firebase/firestore';
+import { addOrder, db, getProductById } from '../../services/firebase/firebase';
 import { useState } from 'react'
 import { useCartContext } from '../../context/CartContext';
 import { useNotificationContext } from '../../services/Notification/Notification';
@@ -44,12 +44,13 @@ const ContactForm = () => {
                 const executeOrder = () => {
                     setProcessingOrder(true);
                     if(outOfStock.length === 0){
-                        addDoc(collection(db, 'orders'), objOrder).then(({id}) => {
+                        addOrder(objOrder).then(response => {
                             batch.commit().then(() => {
-                                setOrderId(id);
-                                setNotification('success',`Bien! La orden se genero exitosamente`);
+                                setOrderId(response);
+                                setNotification('success', 'Bien! la orden se generó exitosamente');  
                             });
-                        }).finally(() => {
+                        })
+                        .finally(() => {
                             clearCart();
                             setProcessingOrder(false)
                         });
@@ -62,13 +63,13 @@ const ContactForm = () => {
                 };
     
                 objOrder.items.forEach((prod) => {
-                    getDoc(doc(db, 'products', prod.id)).then(response => {
-                        if(response.data().stock >= prod.count){
+                    getProductById(prod.id).then(response => {
+                        if(response.stock >= prod.count){
                             batch.update(doc(db, 'products', response.id), {
-                                stock: response.data().stock - prod.count
+                                stock: response.stock - prod.count
                             });
                         } else {
-                            outOfStock.push({id: response.id, ...response.data()});
+                            outOfStock.push(response);
                         };
                     }).catch(err => console.log(err)).then(() => executeOrder()).finally(setProcessingOrder(false));
                 });

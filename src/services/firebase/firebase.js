@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { getDocs, collection, query, where, getDoc, doc } from 'firebase/firestore';
+import { getDocs, collection, query, where, getDoc, doc, addDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_apiKey,
@@ -60,6 +60,14 @@ export const getSliderData = () => {
         return {id: i.id, ...i.data()};
       });
       resolve(images);
+    });
+  });
+};
+
+export const addOrder = (objOrder) => {
+  return new Promise((resolve) => {
+    addDoc(collection(db, 'orders'), objOrder).then(({id}) => {
+      resolve(id);
     });
   });
 };
