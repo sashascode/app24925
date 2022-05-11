@@ -21,10 +21,7 @@ export const Item = ({product}) => {
                         </footer></FadeIn> }
                     </div>
                 </Link>
-            </div>
-            
-            
-            
+            </div>   
         </>
     );
 };
